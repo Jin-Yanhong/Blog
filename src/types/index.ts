@@ -1,8 +1,7 @@
 export interface menuItem {
 	name: string;
-	icon?: string;
 	path: string;
-	activeClass?: string;
+	activeClass: string;
 }
 
 export type componentProps = {

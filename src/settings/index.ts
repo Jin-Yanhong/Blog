@@ -1,9 +1,18 @@
-import { menu } from './router';
+import { navList } from './router';
+
+enum fontWeight {
+	Bold = 'Oswald-Bold',
+	Light = 'Oswald-Light',
+	Regular = 'Oswald-Regular',
+	ExtraLight = 'Oswald-ExtraLight',
+	Medium = 'Oswald-Medium',
+	SemiBold = 'Oswald-SemiBold',
+}
 
 const setting = {
-	menu,
-	defaultActiveClass: 'defaultActiveClass',
-	defaultNavClass: 'defaultNavClass',
+	navList,
+	defaultActiveClass: 'activeNavItem',
+	defaultNavClass: `navItem enFont-${fontWeight.ExtraLight}`,
 };
 
 export default setting;

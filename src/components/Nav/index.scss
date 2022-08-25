@@ -1,3 +1,32 @@
 @import '../../variables.scss';
 .nav {
+	background: #333;
+	line-height: 60px;
+	padding: 0 20px;
+
+	&-left {
+		cursor: pointer;
+		.iconfont {
+			color: #fff;
+			font-size: 30px;
+		}
+	}
+	&-right {
+		.navItem {
+			font-weight: 300;
+			padding: 0 20px;
+			margin: 0 20px;
+			cursor: pointer;
+			color: #fff;
+			font-size: 20px;
+			letter-spacing: 6px;
+			&:nth-last-child(1) {
+				padding-right: 0 !important;
+				margin-right: 0 !important;
+			}
+		}
+		.activeNavItem {
+			color: #dcdde1;
+		}
+	}
 }

@@ -1,19 +1,18 @@
 import { menuItem } from '../types';
-export const menu: Array<menuItem> = [
+export const navList: Array<menuItem> = [
 	{
-		name: '文章',
-		icon: '',
+		name: 'home',
 		path: '/',
 		activeClass: '',
 	},
 	{
-		name: 'Three.js',
-		icon: '',
-		path: 'threejs',
+		name: 'works',
+		path: '/works',
+		activeClass: '',
 	},
 	{
-		name: 'OpenLayers',
-		icon: '',
-		path: 'openlayers',
+		name: 'article',
+		path: '/article',
+		activeClass: '',
 	},
 ];

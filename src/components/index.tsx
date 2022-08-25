@@ -1,4 +1,3 @@
-import Tab from './Tab'
-import Button from './Button'
+import Nav from './Nav';
 
-export { Tab, Button }
+export { Nav };

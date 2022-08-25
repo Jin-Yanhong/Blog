@@ -1,26 +1,2 @@
 .App {
-	display: grid;
-	grid-template-columns: [c1] 100% [c2] 100%;
-	grid-template-rows: [r1] 100% [r2] 100%;
-	gap: 15px 15px;
-	grid-auto-flow: row;
-	.nav {
-		grid-row-start: r1;
-		grid-row-end: r2;
-		grid-column-start: c1;
-		grid-column-end: c1;
-	}
-	.Menu {
-		grid-row-start: r2;
-		grid-row-end: r2;
-		grid-column-start: c1;
-		grid-column-end: c1;
-	}
-
-	.pageSize {
-		grid-row-start: r2;
-		grid-row-end: r2;
-		grid-column-start: c2;
-		grid-column-end: c2;
-	}
 }
