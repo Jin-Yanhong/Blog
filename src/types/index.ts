@@ -10,3 +10,11 @@ export type componentProps = {
 export type componentState = {
 	[key: string]: any;
 };
+export type work = {
+	_id: string;
+	tag: Array<string>;
+	name: String;
+	desc: String;
+	technology: Array<string>;
+	screenShortUrl: String;
+};

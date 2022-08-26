@@ -1,3 +1,6 @@
-import Nav from './Nav';
+import NavBar from './NavBar';
+import BlockTitle from './BlockTitle';
+import Skill from './Skill';
+import TopPicture from './TopPicture';
 
-export { Nav };
+export { NavBar, BlockTitle, Skill, TopPicture };

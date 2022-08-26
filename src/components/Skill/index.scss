@@ -1,0 +1,29 @@
+@import '../../variables.scss';
+
+.skillItem {
+	width: 100%;
+	height: 60px;
+	.name {
+		width: 100px;
+		text-align: right;
+	}
+	.container {
+		width: calc(100% - 180px);
+		height: 12px;
+		background-color: #ccc;
+		border-radius: 100px;
+		position: relative;
+		.bar {
+			position: absolute;
+			z-index: 1;
+			height: 100%;
+			border-radius: 100px;
+			left: 0;
+		}
+	}
+
+	.score {
+		width: 40px;
+		text-align: center;
+	}
+}
