@@ -5,46 +5,47 @@ import setting from '../../settings';
 
 interface navStatus {
 	background?: number[];
+	activeIdx?: number;
 }
 
-interface navProps {
-	className?: string;
-}
+interface navProps {}
 
 export default class Nav extends React.Component<navProps, navStatus> {
-	constructor(status: navStatus) {
-		super({});
+	constructor(props: navProps) {
+		super(props);
 		this.state = {
 			background: [1, 2, 3],
+			activeIdx: 0,
 		};
 	}
-	handleHashChange() {
-		console.log(window.location.hash);
+	navChange(idx: number) {
+		return () => {
+			this.setState({
+				activeIdx: idx,
+			});
+		};
 	}
 	render() {
+		let { background, activeIdx } = this.state;
 		return (
-			<div>
+			<div className='top'>
 				<div className='nav flex flex-between'>
 					<div className='nav-left flex flex-between'>
 						<span className='iconfont icon-menu'></span>
 					</div>
 					<div className='nav-right'>
-						{setting.navList.map(nav => {
+						{setting.navList.map((nav, index) => {
 							return (
 								<NavLink to={nav.path} key={nav.path} className={({ isActive }) => (isActive ? setting.defaultActiveClass + ' ' + setting.defaultNavClass : setting.defaultNavClass)}>
-									<span onClick={this.handleHashChange}>{nav.name.toUpperCase()}</span>
+									<span onClick={this.navChange(index)}>{nav.name.toUpperCase()}</span>
 								</NavLink>
 							);
 						})}
 					</div>
 				</div>
-				<div className='bg-img'>
-					{this.state.background.map((nav, index) => {
-						return (
-							<div key={index}>
-								<img src='' alt='' />
-							</div>
-						);
+				<div className='topImg flex flex-center'>
+					{background?.map((item: number, index: number) => {
+						return index === activeIdx ? <div key={index} className='topImgContainer' style={{ backgroundImage: `url(${require('../../static/img/' + item + '.jpg')})` }}></div> : '';
 					})}
 				</div>
 			</div>

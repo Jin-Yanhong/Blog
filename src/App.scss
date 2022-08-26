@@ -1,0 +1,74 @@
+@import './static/css/reset.css';
+@import './variables.scss';
+@import './static/icon/icon-font/iconfont.css';
+
+$fontWeight: 'Oswald-Bold', 'Oswald-Light', 'Oswald-Regular', 'Oswald-ExtraLight', 'Oswald-Medium', 'Oswald-SemiBold';
+
+@each $font in $fontWeight {
+	@font-face {
+		font-family: '#{$font}';
+		font-style: normal;
+		font-weight: 200;
+		font-display: swap;
+		src: url(../src/static/font/Oswald/#{$font}.ttf) format('woff2');
+	}
+
+	.enFont-#{$font} {
+		font-family: '#{$font}', sans-serif !important;
+	}
+}
+
+body {
+	background-color: $defaultBg;
+}
+
+.flex {
+	display: flex;
+	&-center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&-between {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&-evenly {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+	}
+	&-center-up {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+	}
+	&-start-up {
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+}
+
+/* 滚动条 */
+body::-webkit-scrollbar {
+	display: none;
+	box-shadow: #48a7ff !important;
+	width: 10px;
+	height: 10px;
+}
+
+/* 滚动槽 */
+body::-webkit-scrollbar-track {
+	box-shadow: #48a7ff !important;
+	border-radius: 10px;
+	background: #114a7f;
+}
+
+/* 滚动条滑块 */
+body::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background: #48a7ff;
+	box-shadow: #48a7ff;
+}
