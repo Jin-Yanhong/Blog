@@ -1,15 +1,11 @@
 import { swiperEffect } from '../../enums';
 import { useState, useEffect } from 'react';
-import { Pagination, EffectFade, Autoplay } from 'swiper';
+import { EffectFade, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { getBingWallpaper } from '../../api/home';
 import './index.scss';
-
-interface image {
-	copyright: string;
-	title: string;
-	url: string;
-}
+import 'swiper/scss/autoplay';
+import 'swiper/scss/effect-fade';
 
 function TopPicture() {
 	//  `componentDidMount`, `componentDidUpdate`,  `componentWillUnmount`
@@ -25,21 +21,30 @@ function TopPicture() {
 	return (
 		<div className='TopPicture'>
 			<Swiper
-				className='sliderWrapper'
-				modules={[Pagination, EffectFade, Autoplay]}
+				modules={[EffectFade, Autoplay]}
 				autoplay={{
-					delay: 3600,
+					delay: 3000,
+					pauseOnMouseEnter: true,
+					disableOnInteraction: false,
+				}}
+				effect={swiperEffect.Fade}
+				className='sliderWrapper'
+				fadeEffect={{
+					crossFade: false,
 				}}
 				spaceBetween={0}
 				slidesPerView={1}
-				onSwiper={swiper => {}}
-				effect={swiperEffect.Creative}
-				fadeEffect={{ crossFade: true }}
+				loop={true}
 			>
-				{background.map((img: image) => {
+				{background.map((img: string) => {
 					return (
-						<SwiperSlide key={img.url} className='sliderItem'>
-							<div className='imageContainer' style={{ backgroundImage: `url(${img.url})` }}></div>
+						<SwiperSlide key={img} className='sliderItem'>
+							<div className='mask flex flex-center'>
+								<div className='curtain'>
+									<div className='title'>Hello World</div>
+								</div>
+							</div>
+							<div className='imageContainer' style={{ backgroundImage: `url(${img})` }}></div>
 						</SwiperSlide>
 					);
 				})}

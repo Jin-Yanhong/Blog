@@ -1,0 +1,15 @@
+@import '../../variables.scss';
+
+.footContainer {
+	padding-top: 50px;
+	width: 100%;
+	height: 400rpx;
+	background-color: $themeColor;
+
+	.copyright {
+		color: $themeColor;
+		line-height: 40px;
+		margin: 0;
+		background-color: #fff;
+	}
+}

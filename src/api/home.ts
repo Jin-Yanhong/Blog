@@ -21,3 +21,17 @@ export function getProjectList(pageSize: number, pageNum: number): Promise<any> 
 		params: { pageSize, pageNum },
 	});
 }
+
+export function getOuterLinks(): Promise<any> {
+	return request({
+		url: 'links/getOuterLinks',
+		method: 'get',
+	});
+}
+
+export function getSystemConfig(): Promise<any> {
+	return request({
+		url: 'home/getSystemConfig',
+		method: 'get',
+	});
+}

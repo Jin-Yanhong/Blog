@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { NavLink, useLocation, useHref, useLinkClickHandler } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import setting from '../../settings';
 import './index.scss';
 

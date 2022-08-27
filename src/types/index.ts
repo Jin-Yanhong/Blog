@@ -1,9 +1,3 @@
-export interface menuItem {
-	name: string;
-	path: string;
-	activeClass: string;
-}
-
 export type componentProps = {
 	[key: string]: any;
 };
@@ -18,3 +12,9 @@ export type work = {
 	technology: Array<string>;
 	screenShortUrl: String;
 };
+
+export interface menuItem {
+	name: string;
+	path: string;
+	activeClass: string;
+}

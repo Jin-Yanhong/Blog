@@ -1,18 +1,18 @@
 import { menuItem } from '../types';
 export const navList: Array<menuItem> = [
 	{
-		name: 'home',
+		name: 'Home',
 		path: '/',
 		activeClass: '',
 	},
 	{
-		name: 'works',
-		path: '/works',
+		name: 'Works',
+		path: '/Works',
 		activeClass: '',
 	},
 	{
-		name: 'article',
-		path: '/article',
+		name: 'Article',
+		path: '/Article',
 		activeClass: '',
 	},
 ];
