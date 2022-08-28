@@ -1,9 +1,3 @@
-export type componentProps = {
-	[key: string]: any;
-};
-export type componentState = {
-	[key: string]: any;
-};
 export type work = {
 	_id: string;
 	tag: Array<string>;

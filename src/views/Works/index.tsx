@@ -1,11 +1,30 @@
 import React from 'react';
-import { componentProps, componentState } from '../../types';
+import { BannerImg } from '../../components';
+import { getDate } from '../../utils';
 
-export default class Works extends React.Component<componentProps, componentState> {
+interface WorksProps {
+	[key: string]: any;
+}
+interface WorksState {
+	imgName: string;
+}
+export default class Works extends React.Component<WorksProps, WorksState> {
+	constructor(state: WorksProps) {
+		super(state);
+		this.state = {
+			imgName: getDate().imageIndex.toString(),
+		};
+	}
+
+	componentDidMount(): void {
+		console.log(this.state.imgName);
+	}
+
 	render() {
+		let { imgName = '1' } = this.state;
 		return (
 			<div className='pageContent pageSize'>
-				<div>Works</div>
+				<BannerImg imgName={imgName}></BannerImg>
 			</div>
 		);
 	}

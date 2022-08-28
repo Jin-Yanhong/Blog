@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route /* useLocation */ } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { NavBar, TopPicture, Footer } from './components';
 import Home from './views/Home';
@@ -9,15 +9,16 @@ import { setSystemConfig } from './store/SysConfigMethods';
 import { getSystemConfig } from './api/home';
 import './App.scss';
 
+interface ConfigType {
+	contactInfo?: object;
+	copyright?: string;
+	id?: string;
+}
+
 const App: React.FunctionComponent<{}> = function () {
 	let [config, setConfig] = useState<ConfigType>({});
 	const dispatch = useDispatch();
-	// const location = useLocation();
-	interface ConfigType {
-		contactInfo?: object;
-		copyright?: string;
-		id?: string;
-	}
+	const location = useLocation().pathname;
 
 	useEffect(() => {
 		getSystemConfig()
@@ -31,13 +32,20 @@ const App: React.FunctionComponent<{}> = function () {
 	return (
 		<div className='App'>
 			<NavBar className='NavBar' />
-			<TopPicture />
+			<div
+				style={{
+					display: location == '/' ? 'block' : 'none',
+				}}
+			>
+				<TopPicture />
+			</div>
 			<Routes>
 				<Route element={<Home />} path='/' />
 				<Route element={<Works />} path='/Works' />
 				<Route element={<Article />} path='/Article' />
+				<Route path='*' element={<Navigate to='/' replace />} />
 			</Routes>
-			<Footer copyright={config.copyright} />
+			<Footer copyright={config?.copyright} />
 		</div>
 	);
 };

@@ -7,6 +7,7 @@ import './index.scss';
 type FooterProps = {
 	[key: string]: any;
 };
+
 function Footer(props: FooterProps) {
 	let [links, setLinks] = useState([]);
 
@@ -29,12 +30,11 @@ function Footer(props: FooterProps) {
 					<div className='col-8'>
 						<div className='row'>
 							<ul className='col-4'>
+								<li>站内导航</li>
 								{setting.navList.map(nav => {
 									return (
 										<li key={nav.path}>
-											<NavLink to={nav.path} className={({ isActive }) => (isActive ? setting.defaultActiveClass + ' ' + setting.defaultNavClass : setting.defaultNavClass)}>
-												<span>{nav.name.toUpperCase()}</span>
-											</NavLink>
+											<NavLink to={nav.path}>{nav.name}</NavLink>
 										</li>
 									);
 								})}
@@ -61,11 +61,13 @@ function Footer(props: FooterProps) {
 						<div className='row'>
 							<div className='col-6'>
 								<div className='QrCode'>
+									<p>微信公众号</p>
 									<img src='http://localhost:3000/images/qrcode.png' alt='' />
 								</div>
 							</div>
 							<div className='col-6'>
 								<div className='QrCode'>
+									<p>加我微信</p>
 									<img src='http://localhost:3000/images/qrcode.png' alt='' />
 								</div>
 							</div>
@@ -73,7 +75,6 @@ function Footer(props: FooterProps) {
 					</div>
 				</div>
 			</div>
-
 			<p className='copyright text-center'>{props?.copyright}</p>
 		</div>
 	);

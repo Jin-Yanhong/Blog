@@ -5,7 +5,31 @@
 	width: 100%;
 	height: 400rpx;
 	background-color: $themeColor;
-
+	color: #fff;
+	.container {
+		margin-bottom: 50px;
+		ul {
+			li {
+				list-style: none;
+				line-height: 40px;
+				a {
+					color: #fff;
+					&:hover {
+						color: #dcdde1;
+					}
+				}
+			}
+		}
+	}
+	.QrCode {
+		width: 100px;
+		margin-left: auto;
+		img {
+			display: inline;
+			width: 100px;
+			height: 100px;
+		}
+	}
 	.copyright {
 		color: $themeColor;
 		line-height: 40px;
