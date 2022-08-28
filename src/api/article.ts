@@ -7,3 +7,12 @@ export function getArticleList(pageSize: number, pageNum: number): Promise<any> 
 		params: { pageSize, pageNum },
 	});
 }
+export function getArticleContentById(id: string): Promise<any> {
+	return request({
+		url: 'article/getArticleContentById',
+		method: 'get',
+		params: {
+			id,
+		},
+	});
+}

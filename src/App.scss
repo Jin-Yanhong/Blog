@@ -21,7 +21,7 @@ $fontWeight: 'Oswald-Bold', 'Oswald-Light', 'Oswald-Regular', 'Oswald-ExtraLight
 }
 
 body {
-	background-color: $defaultBg;
+	background-color: #fff;
 }
 
 .App {
@@ -80,6 +80,28 @@ body::-webkit-scrollbar-thumb {
 	border-radius: 10px;
 	background: #48a7ff;
 	box-shadow: #48a7ff;
+}
+
+.topContainer {
+	position: relative;
+	margin-bottom: 80px;
+
+	.BannerImg {
+		position: relative;
+	}
+
+	.title {
+		position: absolute;
+		width: 100%;
+		top: 50%;
+		margin-top: -130px;
+		color: #fff;
+		transform: scale(1.2, 2);
+	}
+
+	.BlockTitle {
+		border: none !important;
+	}
 }
 
 .boxShadow {

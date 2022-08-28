@@ -48,11 +48,6 @@ function TopPicture() {
 				{background.map((img: string) => {
 					return (
 						<SwiperSlide key={img} className='sliderItem'>
-							<div className='mask flex flex-center'>
-								<div className='curtain'>
-									<div className='title'>Hello World</div>
-								</div>
-							</div>
 							<div className='imageContainer' style={{ backgroundImage: `url(${img})` }}></div>
 						</SwiperSlide>
 					);

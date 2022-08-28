@@ -6,6 +6,15 @@ export type work = {
 	technology: Array<string>;
 	screenShortUrl: String;
 };
+export type article = {
+	_id: string;
+	author: string;
+	date: string;
+	subTitle: string;
+	summary: string;
+	title: string;
+	content: string;
+};
 
 export type skill = {
 	_id: string;

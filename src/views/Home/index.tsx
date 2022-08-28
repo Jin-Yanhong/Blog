@@ -38,7 +38,7 @@ const Home: React.FunctionComponent<homeProps> = function (props: homeProps) {
 	}, []);
 
 	return (
-		<div className='pageContent pageSize'>
+		<div>
 			<BlockTitle title='my works'></BlockTitle>
 			<div className='sliderContainer flex  flex-center flex-center-column'>
 				<Swiper

@@ -2,8 +2,7 @@
 
 .ContactUs {
 	.container {
-		padding-top: 12px;
-		padding-bottom: 12px;
+		@include paddingTB;
 		.info {
 			p {
 				line-height: 25px;
@@ -40,6 +39,5 @@
 			height: 300px;
 		}
 	}
-
-	margin-bottom: 80px;
+	@include marginBtm;
 }

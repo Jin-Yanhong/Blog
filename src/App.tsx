@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { NavBar, TopPicture, Footer } from './components';
+import { NavBar, TopPicture, Footer, BlockTitle } from './components';
 import Home from './views/Home';
 import Works from './views/Works';
 import Article from './views/Article';
@@ -44,7 +44,7 @@ const App: React.FunctionComponent<{}> = function () {
 					.catch(err => {});
 			}
 		}
-		return () => window.localStorage.clear();
+		// return () => window.localStorage.clear();
 	}, [pathname]);
 
 	return (
@@ -55,7 +55,14 @@ const App: React.FunctionComponent<{}> = function () {
 					display: pathname == '/' ? 'block' : 'none',
 				}}
 			>
-				<TopPicture />
+				<div className='topContainer'>
+					<div className='BannerImg'>
+						<TopPicture />
+					</div>
+					<div className='title'>
+						<BlockTitle title='Hello World' lineColor='#fff'></BlockTitle>
+					</div>
+				</div>
 			</div>
 			<Routes>
 				<Route element={<Home />} path='/' />

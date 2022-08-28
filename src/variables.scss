@@ -8,3 +8,26 @@ $themeColor: #2b67cc;
 $lineColor: #636363;
 
 $enFont: 'Oswald-Regular';
+
+$itemSpace: 12px;
+
+@mixin borderRadius {
+	border-radius: 4px;
+}
+@mixin marginBtm {
+	margin-bottom: 80px;
+}
+
+@mixin boxShadow {
+	box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px;
+}
+
+@mixin paddingTB {
+	padding: {
+		top: 12px;
+		bottom: 12px;
+	}
+}
+
+// TODO:
+// .enFont-*

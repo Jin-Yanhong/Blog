@@ -1,0 +1,86 @@
+@import '../../variables.scss';
+
+$pageBodyHeight: 1240px;
+
+@mixin catalogAndContentContainer {
+	height: ($pageBodyHeight - 60px);
+	border: 1px solid $themeColor;
+	@include borderRadius;
+	padding: $itemSpace;
+}
+
+.articleModule {
+	@include marginBtm;
+	height: $pageBodyHeight;
+	.catalog {
+		@include catalogAndContentContainer();
+		.name {
+			text-align: center;
+			border-bottom: 1px solid #999;
+			line-height: 40px;
+		}
+		.List {
+			padding-bottom: 4px;
+			margin-bottom: 16px;
+			background-color: #fefefe;
+			border-bottom: 1px solid #ccc;
+			p {
+				margin: 0;
+				cursor: pointer;
+			}
+			.title {
+				background-color: $themeColor;
+				@include borderRadius;
+				color: #fff;
+				padding-left: 6px;
+				line-height: 36px;
+				margin-bottom: 4px;
+			}
+			.subTitle {
+				color: #666;
+				line-height: 30px;
+				text-indent: 1em;
+				text-decoration: underline;
+			}
+			.summary {
+				color: #aaa;
+				line-height: 24px;
+				text-indent: 2em;
+				font-style: italic;
+			}
+
+			&:nth-last-child(1) {
+				border-bottom: none;
+			}
+		}
+	}
+
+	.articleDetails {
+		@include catalogAndContentContainer();
+		.title {
+			color: #333;
+			line-height: 60px;
+			text-align: center;
+		}
+		.subTitle {
+			color: #666;
+			text-align: center;
+			line-height: 40px;
+			text-decoration: underline;
+		}
+		.Info {
+			color: #999;
+			text-align: right;
+			line-height: 40px;
+		}
+		.summary {
+			line-height: 30px;
+			text-align: right;
+			font-style: italic;
+		}
+		.content {
+			line-height: 24px;
+			text-indent: 2em;
+		}
+	}
+}

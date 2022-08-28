@@ -67,13 +67,13 @@ function Footer(props: FooterProps) {
 						<div className='row'>
 							<div className='col-6'>
 								<div className='QrCode'>
-									<p>微信公众号</p>
+									<p className='qrName'>微信公众号</p>
 									<img src='http://localhost:3000/images/qrcode.png' alt='' />
 								</div>
 							</div>
 							<div className='col-6'>
 								<div className='QrCode'>
-									<p>加我微信</p>
+									<p className='qrName'>加我微信</p>
 									<img src='http://localhost:3000/images/qrcode.png' alt='' />
 								</div>
 							</div>
