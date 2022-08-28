@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { getOuterLinks } from '../../api/home';
 import setting from '../../settings';
+import { setStorage, getStorage } from '../../utils';
 import './index.scss';
 
 type FooterProps = {
@@ -10,13 +11,18 @@ type FooterProps = {
 
 function Footer(props: FooterProps) {
 	let [links, setLinks] = useState([]);
-
+	let linksObj: any = getStorage('links') || undefined;
 	useEffect(() => {
-		getOuterLinks()
-			.then(res => {
-				setLinks(res);
-			})
-			.catch(err => {});
+		if (linksObj) {
+			setLinks(linksObj);
+		} else {
+			getOuterLinks()
+				.then(res => {
+					setLinks(res);
+					setStorage('links', res);
+				})
+				.catch(err => {});
+		}
 	}, []);
 
 	type linkType = {

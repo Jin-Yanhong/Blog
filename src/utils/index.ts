@@ -5,3 +5,17 @@ export function getDate() {
 		imageIndex: date.getDay() + 1,
 	};
 }
+
+export function getStorage(key: string): Array<any> | any {
+	let str = window.localStorage.getItem(key);
+	if (str) {
+		return JSON.parse(str);
+	} else {
+		return undefined;
+	}
+}
+
+export function setStorage(key: string, value: any): void {
+	let str = JSON.stringify(value);
+	window.localStorage.setItem(key, str);
+}

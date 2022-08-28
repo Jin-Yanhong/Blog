@@ -21,16 +21,3 @@
 		}
 	}
 }
-
-.skillContainer {
-	width: calc(100% - 200px);
-	margin: auto;
-	border: 1px solid $themeColor;
-	padding: 20px;
-	display: grid;
-	gap: 20px 20px;
-	grid-template-rows: repeat(8, 60px);
-	grid-template-columns: repeat(2, calc(50% - 40px));
-	align-items: center;
-	justify-items: center;
-}

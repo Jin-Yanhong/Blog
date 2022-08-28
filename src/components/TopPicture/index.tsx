@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { EffectFade, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { getBingWallpaper } from '../../api/home';
+import { setStorage, getStorage } from '../../utils';
 import './index.scss';
 import 'swiper/scss/autoplay';
 import 'swiper/scss/effect-fade';
@@ -10,12 +11,20 @@ import 'swiper/scss/effect-fade';
 function TopPicture() {
 	//  `componentDidMount`, `componentDidUpdate`,  `componentWillUnmount`
 	const [background, setBackground] = useState([]);
+
+	let backgroundObj: any = getStorage('background') || undefined;
+
 	useEffect(() => {
-		getBingWallpaper()
-			.then(res => {
-				setBackground(res);
-			})
-			.catch(err => {});
+		if (backgroundObj) {
+			setBackground(backgroundObj);
+		} else {
+			getBingWallpaper()
+				.then(res => {
+					setBackground(res);
+					setStorage('background', res);
+				})
+				.catch(err => {});
+		}
 	}, []);
 
 	return (

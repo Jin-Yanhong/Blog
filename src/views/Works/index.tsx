@@ -17,7 +17,7 @@ export default class Works extends React.Component<WorksProps, WorksState> {
 	}
 
 	componentDidMount(): void {
-		console.log(this.state.imgName);
+		// console.log(this.state.imgName);
 	}
 
 	render() {

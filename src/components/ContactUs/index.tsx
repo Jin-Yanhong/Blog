@@ -1,82 +1,57 @@
-import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { getOuterLinks } from '../../api/home';
-import setting from '../../settings';
+import { useEffect, useState, useRef } from 'react';
+import { useSelector } from 'react-redux';
+import AddressMap from './AddressMap';
+import {} from '../../api/home';
+import { RootState } from '../../store/type';
 import './index.scss';
 
-type FooterProps = {
-	[key: string]: any;
-};
-function Footer(props: FooterProps) {
+interface ContactUsState {
+	address: string;
+	email: string;
+	phone: string;
+}
+interface ContactUsProps {}
+
+const ContactUs: React.FunctionComponent = function (props: ContactUsProps, state: ContactUsState) {
 	let [links, setLinks] = useState([]);
 
-	useEffect(() => {
-		getOuterLinks()
-			.then(res => {
-				setLinks(res);
-			})
-			.catch(err => {});
-	}, []);
+	// const mapContainer = useRef<HTMLInputElement>(null);
 
-	type linkType = {
-		[key: string]: any;
-	};
+	let sysConfig = useSelector((state: RootState) => state.sysConfig.sysConfig);
+	let {
+		contactInfo: { address, email, phone },
+	} = sysConfig;
+	useEffect(() => {}, []);
 
 	return (
-		<div className='footContainer'>
+		<div className='ContactUs'>
 			<div className='container'>
 				<div className='row'>
-					<div className='col-8'>
-						<div className='row'>
-							<ul className='col-4'>
-								{setting.navList.map(nav => {
-									return (
-										<li key={nav.path}>
-											<NavLink to={nav.path} className={({ isActive }) => (isActive ? setting.defaultActiveClass + ' ' + setting.defaultNavClass : setting.defaultNavClass)}>
-												<span>{nav.name.toUpperCase()}</span>
-											</NavLink>
-										</li>
-									);
-								})}
-							</ul>
-
-							{links.map((linkGroup: Array<linkType>, index: number) => {
-								return (
-									<ul className='col-4' key={index}>
-										{linkGroup?.map((link: linkType, idx: number) => {
-											return (
-												<li key={idx}>
-													<a href={link.link} target='_blank' title={link.name}>
-														{link.name}
-													</a>
-												</li>
-											);
-										})}
-									</ul>
-								);
-							})}
+					<div className='col-6'>
+						<div className='info'>
+							<p>
+								<span className='iconfont icon-email'></span>{' '}
+								<a href={'mailto:' + email} target='_blank' rel='noopener noreferrer'>
+									<span className='email'>{email}</span>
+								</a>
+							</p>
+							<p>
+								<span className='iconfont icon-lbs'></span> <span className='address'>{address}</span>
+							</p>
+							<p>
+								<span className='iconfont icon-dianhuatianchong'></span> <span className='phone'>{phone}</span>
+							</p>
 						</div>
 					</div>
-					<div className='col-4'>
-						<div className='row'>
-							<div className='col-6'>
-								<div className='QrCode'>
-									<img src='http://localhost:3000/images/qrcode.png' alt='' />
-								</div>
-							</div>
-							<div className='col-6'>
-								<div className='QrCode'>
-									<img src='http://localhost:3000/images/qrcode.png' alt='' />
-								</div>
-							</div>
+					<div className='col-6'>
+						<div className='mapContainer'>
+							<AddressMap />
 						</div>
 					</div>
 				</div>
 			</div>
-
-			<p className='copyright text-center'>{props?.copyright}</p>
 		</div>
 	);
-}
+};
 
-export default Footer;
+export default ContactUs;

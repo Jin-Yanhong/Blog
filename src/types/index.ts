@@ -7,6 +7,13 @@ export type work = {
 	screenShortUrl: String;
 };
 
+export type skill = {
+	_id: string;
+	color: string;
+	name: String;
+	score: String;
+};
+
 export interface menuItem {
 	name: string;
 	path: string;

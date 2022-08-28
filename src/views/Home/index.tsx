@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Pagination, EffectCoverflow, Autoplay, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useSelector } from 'react-redux';
+import { BlockTitle, ContactUs, Skill } from '../../components';
+import { getProjectList } from '../../api/home';
 import { swiperEffect } from '../../enums';
-import { BlockTitle, Skill } from '../../components';
 import { work } from '../../types';
-import { getSkillsList, getProjectList } from '../../api/home';
-import { RootState } from '../../store/type';
+import { setStorage, getStorage } from '../../utils';
+
 import './index.scss';
 import 'swiper/scss';
 import 'swiper/scss/pagination';
@@ -20,32 +20,26 @@ interface homeProps {
 }
 
 const Home: React.FunctionComponent<homeProps> = function (props: homeProps) {
-	let sysConfig = useSelector((state: RootState) => state.sysConfig.sysConfig);
+	let [works, setWorks] = useState([]);
 
-	let {
-		contactInfo: { address, email, phone },
-	} = sysConfig;
-
-	let [works, setworks] = useState([]);
-	let [skills, setSkills] = useState([]);
+	let worksObj: any = getStorage('works') || undefined;
 
 	useEffect(() => {
-		getProjectList(10, 1)
-			.then(res => {
-				setworks(res);
-			})
-			.catch(err => {});
-		getSkillsList()
-			.then(res => {
-				setSkills(res);
-			})
-			.catch(err => {});
+		if (worksObj) {
+			setWorks(worksObj);
+		} else {
+			getProjectList(10, 1)
+				.then(res => {
+					setWorks(res);
+					setStorage('works', res);
+				})
+				.catch(err => {});
+		}
 	}, []);
 
 	return (
 		<div className='pageContent pageSize'>
 			<BlockTitle title='my works'></BlockTitle>
-
 			<div className='sliderContainer flex  flex-center flex-center-column'>
 				<Swiper
 					modules={[Pagination, EffectCoverflow, Autoplay, Navigation]}
@@ -67,6 +61,7 @@ const Home: React.FunctionComponent<homeProps> = function (props: homeProps) {
 					slidesPerView={5}
 					loop={true}
 					navigation
+					pagination
 				>
 					{works?.map((el: work) => {
 						return (
@@ -78,23 +73,9 @@ const Home: React.FunctionComponent<homeProps> = function (props: homeProps) {
 				</Swiper>
 			</div>
 			<BlockTitle title='my skills'></BlockTitle>
-			<div className='skillContainer'>
-				{skills?.map((el: work) => {
-					return <Skill key={el._id} {...el}></Skill>;
-				})}
-			</div>
+			<Skill></Skill>
 			<BlockTitle title='contact us'></BlockTitle>
-
-			<div className='container'>
-				<div className='row'>
-					<div className='col-6'>
-						<p> {address} </p>
-						<p> {email} </p>
-						<p> {phone}</p>
-					</div>
-					<div className='col-6'>这里放一张地图</div>
-				</div>
-			</div>
+			<ContactUs></ContactUs>
 		</div>
 	);
 };
