@@ -3,13 +3,12 @@
 .workList {
 	@include marginBtm;
 	.workItem {
-		position: relative;
 		@include paddingTB;
+		@include borderRadius;
+		position: relative;
 		padding: ($itemSpace);
 		border: 1px solid rgb(215, 215, 215);
 		border-radius: 4px;
-
-		@include borderRadius;
 		margin: {
 			bottom: $itemSpace * 2;
 		}
@@ -17,15 +16,23 @@
 			height: 120px;
 			@include borderRadius;
 			background-size: 100%;
+			margin-bottom: $itemSpace;
 		}
-
+		.name {
+			margin-bottom: $itemSpace;
+		}
+		.classIfy {
+			margin-bottom: $itemSpace;
+		}
 		.tech {
-			background: $themeColor;
-			color: #fff;
-			@include borderRadius;
-			padding: 0px 6px;
-			margin-right: 6px;
-			font-size: 14px;
+			.techItem {
+				background: $themeColor;
+				color: #fff;
+				@include borderRadius;
+				padding: 0px 6px;
+				margin-right: 6px;
+				font-size: 14px;
+			}
 		}
 
 		.desc {

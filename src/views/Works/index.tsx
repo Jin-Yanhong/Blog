@@ -48,13 +48,13 @@ export default class Works extends React.Component<WorksProps, WorksState> {
 								<div key={el._id} className='col-2'>
 									<div className='workItem'>
 										<div className='image' style={{ backgroundImage: `url(${el.screenShortUrl})` }}></div>
-										<p>{el.name}</p>
-										<p>分类 : {el.tag}</p>
-										<p>
+										<p className='name'>{el.name}</p>
+										<p className='classIfy'>分类 : {el.tag}</p>
+										<p className='tech'>
 											<span>技术栈 : </span>
 											{el.technology.map((tech, index) => {
 												return (
-													<span key={index} className='tech'>
+													<span key={index} className='techItem'>
 														{tech}
 													</span>
 												);
