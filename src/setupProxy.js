@@ -9,6 +9,6 @@ module.exports = function (app) {
 			pathRewrite: {
 				['^' + process.env.REACT_APP_BASE_API]: '',
 			},
-		})
+		}),
 	);
 };

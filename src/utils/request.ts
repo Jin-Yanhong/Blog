@@ -8,14 +8,14 @@ const service = axios.create({
 
 // Request interceptors
 service.interceptors.request.use(
-	config => config,
-	error => console.log(error)
+	(config) => config,
+	(error) => console.log(error),
 );
 
 // Response interceptors
 service.interceptors.response.use(
-	response => response.data.data,
-	error => console.log(error)
+	(response) => response.data.data,
+	(error) => console.log(error),
 );
 
 export default service;

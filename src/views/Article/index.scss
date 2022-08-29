@@ -7,13 +7,18 @@ $pageBodyHeight: 1240px;
 	border: 1px solid $themeColor;
 	@include borderRadius;
 	padding: $itemSpace;
+	@include marginBtm;
 }
 
 .articleModule {
-	@include marginBtm;
-	height: $pageBodyHeight;
+	// height: $pageBodyHeight;
 	.catalog {
 		@include catalogAndContentContainer();
+
+		.scroll-y {
+			height: calc(100% - 40px);
+			overflow-y: scroll;
+		}
 		.name {
 			text-align: center;
 			border-bottom: 1px solid #999;
@@ -57,6 +62,7 @@ $pageBodyHeight: 1240px;
 
 	.articleDetails {
 		@include catalogAndContentContainer();
+
 		.title {
 			color: #333;
 			line-height: 60px;
@@ -77,6 +83,7 @@ $pageBodyHeight: 1240px;
 			line-height: 30px;
 			text-align: right;
 			font-style: italic;
+			margin-bottom: 10px;
 		}
 		.content {
 			line-height: 24px;

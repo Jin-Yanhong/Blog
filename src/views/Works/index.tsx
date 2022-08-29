@@ -1,7 +1,8 @@
 import React from 'react';
-import { BannerImg, BlockTitle } from '../../components';
+import { getProjectList } from '../../api/home';
+import { BannerImg, WorkItem } from '../../components';
 import { work } from '../../types';
-import { getDate, getStorage } from '../../utils';
+import { getDate, getStorage, setStorage } from '../../utils';
 import './index.scss';
 
 interface WorksProps {
@@ -20,48 +21,41 @@ export default class Works extends React.Component<WorksProps, WorksState> {
 			imgName: getDate().imageIndex.toString(),
 			works: [],
 		};
+		// 将组建的方法绑定到组件实例上去
+		// this.setContainerHeight = this.setContainerHeight.bind(this);
 	}
 
 	componentDidMount(): void {
-		let worksObj: any = getStorage('works') || undefined;
-		this.setState({
-			works: worksObj,
-		});
+		let worksObj: any = getStorage('works');
+		if (worksObj) {
+			this.setState({
+				works: worksObj,
+			});
+		} else {
+			getProjectList(10, 1)
+				.then((res) => {
+					this.setState({
+						works: res,
+					});
+					setStorage('works', res);
+				})
+				.catch((err) => {});
+		}
 	}
 
 	render() {
 		let { imgName = '1', works } = this.state;
+		let img = require('../../static/img/banner/' + imgName + '.jpg');
+
 		return (
-			<div>
-				<div className='topContainer'>
-					<div className='BannerImg'>
-						<BannerImg imgName={imgName}></BannerImg>
-					</div>
-					<div className='title'>
-						<BlockTitle title='my works' lineColor='#fff'></BlockTitle>
-					</div>
-				</div>
-				<div className='workList container'>
-					<div className='row'>
+			<div className="worksPage">
+				<BannerImg className="BannerImg" imgName={img} title="my works"></BannerImg>
+				<div className="workList container">
+					<div className="row">
 						{works?.map((el: work) => {
 							return (
-								<div key={el._id} className='col-2'>
-									<div className='workItem'>
-										<div className='image' style={{ backgroundImage: `url(${el.screenShortUrl})` }}></div>
-										<p className='name'>{el.name}</p>
-										<p className='classIfy'>分类 : {el.tag}</p>
-										<p className='tech'>
-											<span>技术栈 : </span>
-											{el.technology.map((tech, index) => {
-												return (
-													<span key={index} className='techItem'>
-														{tech}
-													</span>
-												);
-											})}
-										</p>
-										<div className='desc'>{el.desc}</div>
-									</div>
+								<div key={el._id} className="col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2">
+									<WorkItem {...el} />
 								</div>
 							);
 						})}

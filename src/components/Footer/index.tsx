@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { getOuterLinks } from '../../api/home';
 import setting from '../../settings';
-import { setStorage, getStorage } from '../../utils';
+import { getStorage, setStorage } from '../../utils';
 import './index.scss';
 
 type FooterProps = {
@@ -17,11 +17,11 @@ function Footer(props: FooterProps) {
 			setLinks(linksObj);
 		} else {
 			getOuterLinks()
-				.then(res => {
+				.then((res) => {
 					setLinks(res);
 					setStorage('links', res);
 				})
-				.catch(err => {});
+				.catch((err) => {});
 		}
 	}, []);
 
@@ -30,14 +30,14 @@ function Footer(props: FooterProps) {
 	};
 
 	return (
-		<div className='footContainer'>
-			<div className='container'>
-				<div className='row'>
-					<div className='col-8'>
-						<div className='row'>
-							<ul className='col-4'>
+		<div className="footer">
+			<div className="container">
+				<div className="row">
+					<div className="col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8">
+						<div className="row">
+							<ul className="col-4">
 								<li>站内导航</li>
-								{setting.navList.map(nav => {
+								{setting.navList.map((nav) => {
 									return (
 										<li key={nav.path}>
 											<NavLink to={nav.path}>{nav.name}</NavLink>
@@ -48,40 +48,38 @@ function Footer(props: FooterProps) {
 
 							{links.map((linkGroup: Array<linkType>, index: number) => {
 								return (
-									<ul className='col-4' key={index}>
-										{linkGroup?.map((link: linkType, idx: number) => {
-											return (
-												<li key={idx}>
-													<a href={link.link} target='_blank' title={link.name}>
-														{link.name}
-													</a>
-												</li>
-											);
-										})}
+									<ul className="col-4" key={index}>
+										{linkGroup?.map((link: linkType, idx: number) => (
+											<li key={idx}>
+												<a href={link.link} target="_blank" title={link.name}>
+													{link.name}
+												</a>
+											</li>
+										))}
 									</ul>
 								);
 							})}
 						</div>
 					</div>
-					<div className='col-4'>
-						<div className='row'>
-							<div className='col-6'>
-								<div className='QrCode'>
-									<p className='qrName'>微信公众号</p>
-									<img src='http://localhost:3000/images/qrcode.png' alt='' />
+					<div className="d-none d-sm-none d-md-none col-lg-4 col-xl-4 col-xxl-4 d-lg-block d-xl-block d-xxl-block">
+						<div className="row">
+							<div className="col-6">
+								<div className="QrCode">
+									<p className="qrName">微信公众号</p>
+									<img src="http://localhost:3000/images/qrcode.png" alt="" />
 								</div>
 							</div>
-							<div className='col-6'>
-								<div className='QrCode'>
-									<p className='qrName'>加我微信</p>
-									<img src='http://localhost:3000/images/qrcode.png' alt='' />
+							<div className="col-6">
+								<div className="QrCode">
+									<p className="qrName">加我微信</p>
+									<img src="http://localhost:3000/images/qrcode.png" alt="" />
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<p className='copyright text-center'>{props?.copyright}</p>
+			<p className="copyright">{props?.copyright}</p>
 		</div>
 	);
 }

@@ -13,14 +13,27 @@ function NavBar(props: navProps) {
 	useEffect(() => {}, []);
 
 	return (
-		<div className='nav flex flex-between'>
-			<div className='nav-left flex flex-between'>
-				<span className='iconfont icon-menu'></span>
+		<div className="nav flex flex-between">
+			<div className="nav-left flex flex-between">
+				<span
+					className="iconfont icon-menu"
+					onClick={() => {
+						alert('Thanks for waiting!');
+					}}
+				></span>
 			</div>
-			<div className='nav-right'>
-				{setting.navList.map(nav => {
+			<div className="nav-right">
+				{setting.navList.map((nav) => {
 					return (
-						<NavLink to={nav.path} key={nav.path} className={({ isActive }) => (isActive ? setting.defaultActiveClass + ' ' + setting.defaultNavClass : setting.defaultNavClass)}>
+						<NavLink
+							to={nav.path}
+							key={nav.path}
+							className={({ isActive }) =>
+								isActive
+									? setting.defaultActiveClass + ' ' + setting.defaultNavClass
+									: setting.defaultNavClass
+							}
+						>
 							<span>{nav.name.toUpperCase()}</span>
 						</NavLink>
 					);

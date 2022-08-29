@@ -20,14 +20,6 @@ $fontWeight: 'Oswald-Bold', 'Oswald-Light', 'Oswald-Regular', 'Oswald-ExtraLight
 	}
 }
 
-body {
-	background-color: #fff;
-}
-
-.App {
-	position: relative;
-}
-
 .flex {
 	display: flex;
 	&-center {
@@ -59,55 +51,42 @@ body {
 		align-items: flex-start;
 	}
 }
-
-/* 滚动条 */
-body::-webkit-scrollbar {
-	display: none;
-	box-shadow: #48a7ff !important;
-	width: 10px;
-	height: 10px;
-}
-
-/* 滚动槽 */
-body::-webkit-scrollbar-track {
-	box-shadow: #48a7ff !important;
-	border-radius: 10px;
-	background: #114a7f;
-}
-
-/* 滚动条滑块 */
-body::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	background: #48a7ff;
-	box-shadow: #48a7ff;
-}
-
-.topContainer {
-	position: relative;
-	margin-bottom: 80px;
-
-	.BannerImg {
-		position: relative;
+.scroll-y {
+	$scrollbarWidth: 5px;
+	/* 滚动条 */
+	&::-webkit-scrollbar {
+		width: $scrollbarWidth;
+		height: $scrollbarWidth;
 	}
 
-	.title {
-		position: absolute;
-		width: 100%;
-		top: 50%;
-		margin-top: -130px;
-		color: #fff;
-		transform: scale(1.2, 2);
+	/* 滚动槽 */
+	&::-webkit-scrollbar-track {
+		border-radius: $scrollbarWidth;
+		background: #fff;
 	}
 
-	.BlockTitle {
-		border: none !important;
+	/* 滚动条滑块 */
+	&::-webkit-scrollbar-thumb {
+		border-radius: $scrollbarWidth;
+		background: $themeColor;
 	}
 }
 
 .boxShadow {
-	box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px;
+	box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+		rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px;
 }
 
 .enFont {
 	font-family: $enFont, sans-serif !important;
+}
+
+body {
+	background-color: #fff;
+	&::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+		background: transparent;
+		display: none;
+	}
 }

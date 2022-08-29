@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { Pagination, EffectCoverflow, Autoplay, Navigation } from 'swiper';
+import React, { useEffect, useState } from 'react';
+import { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { BlockTitle, ContactUs, Skill } from '../../components';
 import { getProjectList } from '../../api/home';
-import { swiperEffect } from '../../enums';
+import { BlockTitle, ContactUs, Skill, TopPicture, WorkItem } from '../../components';
 import { work } from '../../types';
-import { setStorage, getStorage } from '../../utils';
+import { getStorage, setStorage } from '../../utils';
 
-import './index.scss';
 import 'swiper/scss';
-import 'swiper/scss/pagination';
 import 'swiper/scss/autoplay';
-import 'swiper/scss/effect-coverflow';
+import 'swiper/scss/pagination';
+import './index.scss';
 
 interface homeProps {
 	works?: Array<work>;
@@ -29,52 +27,50 @@ const Home: React.FunctionComponent<homeProps> = function (props: homeProps) {
 			setWorks(worksObj);
 		} else {
 			getProjectList(10, 1)
-				.then(res => {
+				.then((res) => {
 					setWorks(res);
 					setStorage('works', res);
 				})
-				.catch(err => {});
+				.catch((err) => {});
 		}
 	}, []);
 
 	return (
 		<div>
-			<BlockTitle title='my works'></BlockTitle>
-			<div className='sliderContainer flex  flex-center flex-center-column'>
+			<div className="topImage">
+				<TopPicture />
+			</div>
+			<BlockTitle title="my works"></BlockTitle>
+			<div className="sliderContainer flex  flex-center flex-center-column">
 				<Swiper
-					modules={[Pagination, EffectCoverflow, Autoplay, Navigation]}
-					coverflowEffect={{
-						rotate: 6,
-						stretch: 0,
-						depth: 0,
-						modifier: 3,
-						slideShadows: true,
+					modules={[Autoplay]}
+					className="sliderWrapper"
+					autoplay={{ delay: 3000, pauseOnMouseEnter: true, disableOnInteraction: false }}
+					breakpoints={{
+						320: { slidesPerView: 1, spaceBetween: 20 },
+						480: { slidesPerView: 1, spaceBetween: 30 },
+						576: { slidesPerView: 2, spaceBetween: 10 },
+						768: { slidesPerView: 3, spaceBetween: 10 },
+						992: { slidesPerView: 4, spaceBetween: 10 },
+						1200: { slidesPerView: 5, spaceBetween: 10 },
+						1400: { slidesPerView: 6, spaceBetween: 10 },
 					}}
-					autoplay={{
-						delay: 1000,
-						pauseOnMouseEnter: true,
-						disableOnInteraction: false,
-					}}
-					effect={swiperEffect.CoverFlow}
-					className='sliderWrapper'
 					spaceBetween={10}
 					slidesPerView={5}
 					loop={true}
-					navigation
-					pagination
 				>
 					{works?.map((el: work) => {
 						return (
-							<SwiperSlide key={el._id} className='sliderItem'>
-								<div className='imageContainer' style={{ backgroundImage: `url(${el.screenShortUrl})` }}></div>
+							<SwiperSlide key={el._id} className="sliderItem flex flex-center">
+								<WorkItem {...el}> </WorkItem>
 							</SwiperSlide>
 						);
 					})}
 				</Swiper>
 			</div>
-			<BlockTitle title='my skills'></BlockTitle>
+			<BlockTitle title="my skills"></BlockTitle>
 			<Skill></Skill>
-			<BlockTitle title='contact us'></BlockTitle>
+			<BlockTitle title="contact us"></BlockTitle>
 			<ContactUs></ContactUs>
 		</div>
 	);

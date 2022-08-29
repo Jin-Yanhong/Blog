@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getSkillsList } from '../../api/home';
 import { skill } from '../../types';
-import { setStorage, getStorage } from '../../utils';
+import { getStorage, setStorage } from '../../utils';
 import './index.scss';
 
 interface skillProps {
@@ -17,25 +17,28 @@ const Skill: React.FunctionComponent<skillProps> = function (props: skillProps) 
 			setSkills(skillsObj);
 		} else {
 			getSkillsList()
-				.then(res => {
+				.then((res) => {
 					setSkills(res);
 					setStorage('skills', res);
 				})
-				.catch(err => {});
+				.catch((err) => {});
 		}
 	}, []);
 	return (
-		<div className='container'>
-			<div className='row'>
+		<div className="container">
+			<div className="row">
 				{skills?.map((el: skill) => {
 					return (
-						<div key={el._id} className='col-6'>
-							<div className='skillItem flex flex-between' style={{ color: el.color }}>
-								<span className='name'>{el.name}</span>
-								<div className='container' style={{ borderColor: el.color }}>
-									<span className='bar' style={{ backgroundColor: el.color, width: el.score + '%' }}></span>
+						<div key={el._id} className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-3">
+							<div className="skillItem flex flex-between" style={{ color: el.color }}>
+								<span className="name">{el.name}</span>
+								<div className="container" style={{ borderColor: el.color }}>
+									<span
+										className="bar"
+										style={{ backgroundColor: el.color, width: el.score + '%' }}
+									></span>
 								</div>
-								<span className='score'>{el.score}%</span>
+								<span className="score">{el.score}%</span>
 							</div>
 						</div>
 					);

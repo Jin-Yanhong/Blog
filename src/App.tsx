@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { NavBar, TopPicture, Footer, BlockTitle } from './components';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { getSystemConfig } from './api/home';
+import { Footer, NavBar } from './components';
+import { setSystemConfig } from './store/SysConfigMethods';
+import { getStorage, setStorage } from './utils';
+import Article from './views/Article';
 import Home from './views/Home';
 import Works from './views/Works';
-import Article from './views/Article';
-import { setSystemConfig } from './store/SysConfigMethods';
-import { getSystemConfig } from './api/home';
-import { setStorage, getStorage } from './utils';
 
 import './App.scss';
 
@@ -36,39 +36,25 @@ const App: React.FunctionComponent<{}> = function () {
 				dispatch(setSystemConfig({ sysConfig: configObj }));
 			} else {
 				getSystemConfig()
-					.then(res => {
+					.then((res) => {
 						setConfig(res);
 						setStorage('config', res);
 						dispatch(setSystemConfig({ sysConfig: res }));
 					})
-					.catch(err => {});
+					.catch((err) => {});
 			}
 		}
 		// return () => window.localStorage.clear();
 	}, [pathname]);
 
 	return (
-		<div className='App'>
-			<NavBar className='NavBar' />
-			<div
-				style={{
-					display: pathname == '/' ? 'block' : 'none',
-				}}
-			>
-				<div className='topContainer'>
-					<div className='BannerImg'>
-						<TopPicture />
-					</div>
-					<div className='title'>
-						<BlockTitle title='Hello World' lineColor='#fff'></BlockTitle>
-					</div>
-				</div>
-			</div>
+		<div className="App">
+			<NavBar className="NavBar" />
 			<Routes>
-				<Route element={<Home />} path='/' />
-				<Route element={<Works />} path='/Works' />
-				<Route element={<Article />} path='/Article' />
-				<Route path='*' element={<Navigate to='/' replace />} />
+				<Route element={<Home />} path="/" />
+				<Route element={<Works />} path="/Works" />
+				<Route element={<Article />} path="/Article" />
+				<Route path="*" element={<Navigate to="/" replace />} />
 			</Routes>
 			<Footer copyright={config?.copyright} />
 		</div>

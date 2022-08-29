@@ -1,8 +1,8 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import AddressMap from './AddressMap';
 import {} from '../../api/home';
 import { RootState } from '../../store/type';
+import AddressMap from './AddressMap';
 import './index.scss';
 
 interface ContactUsState {
@@ -21,31 +21,33 @@ const ContactUs: React.FunctionComponent = function (props: ContactUsProps, stat
 	let {
 		contactInfo: { address, email, phone },
 	} = sysConfig;
+
 	useEffect(() => {}, []);
 
 	return (
-		<div className='ContactUs'>
-			<div className='container'>
-				<div className='row'>
-					<div className='col-6'>
-						<div className='info'>
+		<div className="ContactUs">
+			<div className="container">
+				<div className="row">
+					<div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+						<div className="mapContainer">
+							<AddressMap center={[103.825764, 36.054192]} />
+						</div>
+					</div>
+					<div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+						<div className="info">
 							<p>
-								<span className='iconfont icon-email'></span>{' '}
-								<a href={'mailto:' + email} target='_blank' rel='noopener noreferrer'>
-									<span className='email'>{email}</span>
+								<span className="iconfont icon-email"></span>{' '}
+								<a href={'mailto:' + email} target="_blank" rel="noopener noreferrer">
+									<span className="email">{email}</span>
 								</a>
 							</p>
 							<p>
-								<span className='iconfont icon-lbs'></span> <span className='address'>{address}</span>
+								<span className="iconfont icon-lbs"></span> <span className="address">{address}</span>
 							</p>
 							<p>
-								<span className='iconfont icon-dianhuatianchong'></span> <span className='phone'>{phone}</span>
+								<span className="iconfont icon-dianhuatianchong"></span>{' '}
+								<span className="phone">{phone}</span>
 							</p>
-						</div>
-					</div>
-					<div className='col-6'>
-						<div className='mapContainer'>
-							<AddressMap />
 						</div>
 					</div>
 				</div>

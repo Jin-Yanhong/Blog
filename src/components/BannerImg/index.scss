@@ -1,8 +1,54 @@
 @import '../../variables.scss';
 
 .BannerImg {
+	user-select: none;
+	position: relative;
 	width: 100%;
-	height: 100vh;
-	background-repeat: no-repeat;
-	background-size: 100% auto;
+	@include marginBtm;
+	.titleBox {
+		position: absolute;
+		width: 100%;
+		transition: all 1s ease-in-out;
+		.BlockTitle {
+			color: #fff;
+			border: none !important;
+			.hr {
+				background: #fff;
+			}
+			.innerTitle {
+				font-size: 60px;
+				font-weight: bold;
+			}
+		}
+	}
+
+	.img {
+		width: 100%;
+	}
 }
+
+// @media (min-width: 576px) {
+// 	.BannerImg {
+// 		background-size: auto 100%;
+// 	}
+// }
+// @media (min-width: 768px) {
+// 	.BannerImg {
+// 		background-size: auto 100%;
+// 	}
+// }
+// @media (min-width: 992px) {
+// 	.BannerImg {
+// 		background-size: auto 100%;
+// 	}
+// }
+// @media (min-width: 1200px) {
+// 	.BannerImg {
+// 		background-size: 100% auto;
+// 	}
+// }
+// @media (min-width: 1400px) {
+// 	.BannerImg {
+// 		background-size: 100% auto;
+// 	}
+// }

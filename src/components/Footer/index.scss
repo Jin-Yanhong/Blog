@@ -1,6 +1,6 @@
 @import '../../variables.scss';
 
-.footContainer {
+.footer {
 	padding-top: 50px;
 	width: 100%;
 	background-color: $themeColor;
@@ -36,6 +36,7 @@
 	}
 	.copyright {
 		color: $themeColor;
+		text-align: center;
 		line-height: 40px;
 		margin: 0;
 		background-color: #fff;

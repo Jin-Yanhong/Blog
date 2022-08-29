@@ -1,0 +1,58 @@
+@import '../../variables.scss';
+
+.workItem {
+	@include paddingTB;
+	@include borderRadius;
+	position: relative;
+	padding: ($itemSpace);
+	border: 1px solid rgb(215, 215, 215);
+	border-radius: 4px;
+	transition: all 0.5s ease-in-out;
+	.image {
+		height: 120px;
+		@include borderRadius;
+		background-size: 100%;
+		margin-bottom: $itemSpace;
+	}
+	.name {
+		margin-bottom: $itemSpace;
+	}
+	.classIfy {
+		margin-bottom: $itemSpace;
+	}
+	.tech {
+		.techItem {
+			background: $themeColor;
+			color: #fff;
+			@include borderRadius;
+			padding: 0px 6px;
+			margin-right: 6px;
+			font-size: 14px;
+		}
+	}
+
+	.desc {
+		transition: all 0.5s ease-in-out;
+		position: absolute;
+		transform: rotateY(90deg);
+		transform-origin: center center;
+		top: 0;
+		left: 0;
+		height: calc(100% - 11px);
+		width: calc(100% - 12px);
+		background-color: rgba(0, 0, 0, 0.6);
+		color: #fff;
+		text-indent: 2em;
+		padding: 6px;
+		@include boxShadow;
+	}
+	&:hover {
+		transform: translateY(-6px);
+		cursor: pointer;
+		border: 1px solid $themeColor;
+		@include boxShadow;
+		.desc {
+			transform: rotateY(0);
+		}
+	}
+}

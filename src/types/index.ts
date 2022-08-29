@@ -28,3 +28,8 @@ export interface menuItem {
 	path: string;
 	activeClass: string;
 }
+
+export interface ErrorMsg {
+	message: string;
+	[key: string]: any;
+}

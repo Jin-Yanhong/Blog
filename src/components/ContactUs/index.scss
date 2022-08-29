@@ -4,11 +4,12 @@
 	.container {
 		@include paddingTB;
 		.info {
+			@include marginBtm;
 			p {
 				line-height: 25px;
 				position: relative;
 				color: $themeColor;
-
+				margin-bottom: 40px;
 				.icon-email {
 					font-size: 22px;
 				}
@@ -35,9 +36,9 @@
 			line-height: 30px;
 		}
 		.mapContainer {
+			@include marginBtm;
 			width: 100%;
 			height: 300px;
 		}
 	}
-	@include marginBtm;
 }

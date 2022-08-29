@@ -1,34 +1,36 @@
-import { swiperEffect } from '../../enums';
-import { useState, useEffect } from 'react';
-import { EffectFade, Autoplay } from 'swiper';
+import { useEffect, useState } from 'react';
+import { Autoplay, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import BannerImg from '../BannerImg';
 import { getBingWallpaper } from '../../api/home';
-import { setStorage, getStorage } from '../../utils';
+import { swiperEffect } from '../../enums';
+import { getStorage, setStorage } from '../../utils';
+
 import './index.scss';
 import 'swiper/scss/autoplay';
 import 'swiper/scss/effect-fade';
 
 function TopPicture() {
 	//  `componentDidMount`, `componentDidUpdate`,  `componentWillUnmount`
-	const [background, setBackground] = useState([]);
+	const [background = [], setBackground] = useState([]);
 
-	let backgroundObj: any = getStorage('background') || undefined;
+	let backgroundObj: any = getStorage('background');
 
 	useEffect(() => {
 		if (backgroundObj) {
 			setBackground(backgroundObj);
 		} else {
 			getBingWallpaper()
-				.then(res => {
+				.then((res) => {
 					setBackground(res);
 					setStorage('background', res);
 				})
-				.catch(err => {});
+				.catch((err) => {});
 		}
 	}, []);
 
 	return (
-		<div className='TopPicture'>
+		<div className="TopPicture">
 			<Swiper
 				modules={[EffectFade, Autoplay]}
 				autoplay={{
@@ -37,7 +39,7 @@ function TopPicture() {
 					disableOnInteraction: false,
 				}}
 				effect={swiperEffect.Fade}
-				className='sliderWrapper'
+				className="sliderWrapper"
 				fadeEffect={{
 					crossFade: false,
 				}}
@@ -47,8 +49,8 @@ function TopPicture() {
 			>
 				{background.map((img: string) => {
 					return (
-						<SwiperSlide key={img} className='sliderItem'>
-							<div className='imageContainer' style={{ backgroundImage: `url(${img})` }}></div>
+						<SwiperSlide key={img} className="sliderItem">
+							<BannerImg imgName={img} title="Hello" />
 						</SwiperSlide>
 					);
 				})}
