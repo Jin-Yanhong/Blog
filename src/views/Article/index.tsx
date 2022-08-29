@@ -75,9 +75,9 @@ export default class Article extends React.Component<articleProps, articleState>
 		let { articleList = [], articleDetail = {} } = this.state;
 		let img = require(`../../static/img/banner/article.jpg`);
 		return (
-			<div>
+			<div className="articlePage">
 				<BannerImg className="BannerImg" imgName={img} title="article"></BannerImg>
-				<div className="articleModule container">
+				<div className="articleBody container">
 					<div className="row">
 						<div className="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-3">
 							<div className="catalog">

@@ -19,20 +19,19 @@ function BannerImg(props: propsType, state: stateType) {
 
 	const handleContextMenu = function (event: React.SyntheticEvent<HTMLImageElement, Event>) {
 		event.preventDefault();
+		console.log(event);
 	};
 
 	const handleImageOnLoad = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
 		let { naturalWidth, naturalHeight } = event.currentTarget;
-		let height: number = window.innerWidth / (naturalWidth / naturalHeight);
+		let rate = naturalWidth / naturalHeight;
+		let height: number = window.innerWidth / rate;
 		setHeight(height);
-	};
-
-	useEffect(() => {
 		setVisible(height !== 0);
-		return () => {
-			//
-		};
-	}, [height]);
+		window.addEventListener('resize', () => {
+			setHeight(window.innerWidth / rate);
+		});
+	};
 
 	return (
 		<div className="BannerImg">

@@ -1,10 +1,14 @@
 @import '../../variables.scss';
-
-.workList {
-	@include marginBtm;
-	.workItem {
-		margin: {
-			bottom: $itemSpace * 2;
+.worksPage {
+	.BannerImg {
+		@include marginBtm;
+	}
+	.workList {
+		@include marginBtm;
+		.workItem {
+			margin: {
+				bottom: $itemSpace * 2;
+			}
 		}
 	}
 }

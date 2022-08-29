@@ -5,6 +5,10 @@
 		@include paddingTB;
 		.info {
 			@include marginBtm;
+			height: (300px - $itemSpace - $itemSpace);
+			border: 1px solid $themeColor;
+			padding: $itemSpace;
+			@include borderRadius;
 			p {
 				line-height: 25px;
 				position: relative;
