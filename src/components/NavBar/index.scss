@@ -44,13 +44,13 @@
 
 	.mobile {
 		box-sizing: border-box;
-		background-color: #f8f9fa;
 		width: 100%;
 		.navbar {
+			background-color: #00000055;
 			padding: 0 20px;
 			display: flex;
 			justify-content: space-between;
-			color: #333;
+			color: #fff;
 			.iconfont {
 				font-size: 30px;
 			}
@@ -58,7 +58,7 @@
 
 		.navList {
 			padding: 0 20px;
-			background: #fff;
+			background-color: #00000040;
 			transition: all 0.5s ease-in-out;
 			overflow-y: hidden;
 			height: 0;
@@ -66,13 +66,9 @@
 				padding: 0;
 				margin: 0;
 				.navItem {
-					color: #999;
 					padding: 0;
 					margin: 0;
 				}
-			}
-			.activeNavItem {
-				color: #333 !important;
 			}
 		}
 		.heightAuto {
@@ -83,5 +79,9 @@
 		font-family: $enFont, sans-serif !important;
 		font-size: 20px;
 		letter-spacing: 6px;
+		color: $linkTextColor;
 	}
+}
+.activeNavItem {
+	color: $linkTextHoverColor !important;
 }

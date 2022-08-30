@@ -56,7 +56,7 @@ export default class Footer extends React.Component<footerProps, footerState> {
 					<div className="row">
 						<div className="col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-9">
 							<div className="row">
-								<dl className="linkList col-3">
+								<dl className="linkList col-4">
 									<dt className="linkListTitle">站内导航</dt>
 									{setting.navList.map((nav) => {
 										return (
@@ -67,7 +67,7 @@ export default class Footer extends React.Component<footerProps, footerState> {
 									})}
 								</dl>
 
-								<dl className="linkList col-3">
+								<dl className="linkList col-4">
 									<dt className="linkListTitle">灵感来自</dt>
 									{thanks.map((link: linkItem, index) => {
 										return (
@@ -80,7 +80,7 @@ export default class Footer extends React.Component<footerProps, footerState> {
 									})}
 								</dl>
 
-								<dl className="linkList col-3">
+								<dl className="linkList col-4">
 									<dt className="linkListTitle">友情链接</dt>
 									{tools.map((link: linkItem, index) => {
 										return (
@@ -91,19 +91,6 @@ export default class Footer extends React.Component<footerProps, footerState> {
 											</dd>
 										);
 									})}
-								</dl>
-
-								<dl className="linkList col-3">
-									<dt className="linkListTitle">加入我们</dt>
-									<dd className="linkItem">
-										<a
-											href="https://github.com/Jin-Yanhong"
-											target="_blank"
-											rel="noopener noreferrer"
-										>
-											Github
-										</a>
-									</dd>
 								</dl>
 							</div>
 						</div>

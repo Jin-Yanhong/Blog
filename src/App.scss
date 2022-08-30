@@ -91,3 +91,18 @@ body {
 		display: none;
 	}
 }
+
+@media (max-width: 576px) {
+	.mobile {
+		display: block !important;
+	}
+	.desktop {
+		display: none !important;
+	}
+	.container {
+		width: calc(100% - 24px);
+	}
+	.BackToTop {
+		display: none !important;
+	}
+}

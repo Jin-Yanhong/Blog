@@ -14,6 +14,8 @@
 				position: relative;
 				color: $themeColor;
 				margin-bottom: 40px;
+				display: flex;
+				align-items: flex-start;
 				.icon-email {
 					font-size: 22px;
 				}
@@ -33,6 +35,11 @@
 
 				.phone {
 					margin-left: 2px;
+					display: inline-block;
+				}
+				.address {
+					display: inline-block;
+					width: calc(100% - 40px);
 				}
 			}
 
