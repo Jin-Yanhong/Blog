@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 import setting from '../../settings';
 import './index.scss';
 
@@ -8,36 +8,54 @@ interface navProps {
 }
 
 function NavBar(props: navProps) {
-	let { pathname } = useLocation();
+	const navListRef = useRef<HTMLUListElement>(null);
 
-	useEffect(() => {}, []);
+	const toggleClass = () => {
+		navListRef.current?.classList.toggle('heightAuto');
+	};
 
 	return (
-		<div className="nav flex flex-between">
-			<div className="nav-left flex flex-between">
-				<span
-					className="iconfont icon-menu"
-					onClick={() => {
-						alert('Thanks for waiting!');
-					}}
-				></span>
+		<div className="nav">
+			<div className="d-sm-none d-md-none d-lg-block d-xl-block d-xxl-block desktop">
+				<div className="brand">Logo</div>
+				<ul className="navList">
+					{setting.navList.map((nav) => {
+						return (
+							<li key={nav.path}>
+								<NavLink
+									to={nav.path}
+									className={({ isActive }) =>
+										isActive ? setting.defaultActiveClass + ' navItem' : 'navItem'
+									}
+								>
+									<span>{nav.name.toUpperCase()}</span>
+								</NavLink>
+							</li>
+						);
+					})}
+				</ul>
 			</div>
-			<div className="nav-right">
-				{setting.navList.map((nav) => {
-					return (
-						<NavLink
-							to={nav.path}
-							key={nav.path}
-							className={({ isActive }) =>
-								isActive
-									? setting.defaultActiveClass + ' ' + setting.defaultNavClass
-									: setting.defaultNavClass
-							}
-						>
-							<span>{nav.name.toUpperCase()}</span>
-						</NavLink>
-					);
-				})}
+			<div className="d-sm-block d-md-block d-lg-none d-xl-none d-xxl-none mobile">
+				<div className="navbar">
+					<span className="brand">Logo</span>
+					<span className="iconfont icon-menu" onClick={() => toggleClass()}></span>
+				</div>
+				<ul className="navList" ref={navListRef}>
+					{setting.navList.map((nav) => {
+						return (
+							<li key={nav.path}>
+								<NavLink
+									to={nav.path}
+									className={({ isActive }) =>
+										isActive ? setting.defaultActiveClass + ' navItem' : 'navItem'
+									}
+								>
+									<span>{nav.name.toUpperCase()}</span>
+								</NavLink>
+							</li>
+						);
+					})}
+				</ul>
 			</div>
 		</div>
 	);

@@ -11,6 +11,10 @@ $enFont: 'Oswald-Regular';
 
 $itemSpace: 12px;
 
+$linkTextColor: #dcdde1;
+
+$linkTextHoverColor: #fff;
+
 @mixin borderRadius {
 	border-radius: 4px;
 }

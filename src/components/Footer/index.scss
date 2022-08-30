@@ -7,26 +7,28 @@
 	color: #fff;
 	.container {
 		margin-bottom: 40px;
-		ul {
-			li {
+		.linkList {
+			.linkListTitle {
+				margin-bottom: 10px;
+			}
+			.linkItem {
+				margin: 0;
 				list-style: none;
-				line-height: 40px;
+				line-height: 24px;
+				font-size: 14px;
 				a {
-					color: #fff;
+					color: $linkTextColor;
 					&:hover {
-						color: #dcdde1;
+						color: $linkTextHoverColor;
 					}
 				}
 			}
 		}
 	}
-	.QrCode {
+	.QRCode {
 		width: 100px;
-		margin-left: auto;
-
-		.qrName {
-			line-height: 40px;
-			margin-bottom: 14px;
+		.name {
+			margin-bottom: 10px;
 		}
 		img {
 			display: inline;
@@ -35,11 +37,13 @@
 		}
 	}
 	.copyright {
+		font-size: 14px;
 		color: $themeColor;
 		text-align: center;
-		line-height: 40px;
+		line-height: 28px;
 		margin: 0;
-		background-color: #fff;
+		background-color: $themeColor;
+		color: #fff;
 		padding: 0;
 	}
 }

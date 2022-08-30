@@ -23,6 +23,10 @@ const Skill: React.FunctionComponent<skillProps> = function (props: skillProps) 
 				})
 				.catch((err) => {});
 		}
+
+		return () => {
+			// window.localStorage.clear();
+		};
 	}, []);
 	return (
 		<div className="container">

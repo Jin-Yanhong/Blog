@@ -36,18 +36,18 @@ export default class AddressMap extends Component {
 
 		const iconStyle = new Style({
 			image: new Icon({
-				anchor: [0.5, 60],
+				anchor: [0.5, 48],
 				anchorXUnits: 'fraction',
 				anchorYUnits: 'pixels',
 				src: location,
 			}),
 			text: new Text({
 				font: '14px Microsoft YaHei',
-				text: 'We are here',
-				offsetY: 0,
+				text: '3310室',
+				offsetY: -64,
 				backgroundFill: new Fill({ color: '#3968CF' }),
 				fill: new Fill({ color: '#ffffff' }),
-				padding: [1, 4, 1, 4],
+				padding: [2, 4, 0, 4],
 			}),
 		});
 
@@ -63,16 +63,15 @@ export default class AddressMap extends Component {
 
 		const tileLayer = new Tile({
 			source: new XYZ({
-				url: 'http://webst0{1-4}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=7&x={x}&y={y}&z={z}',
+				url: 'http://cache1.arcgisonline.cn/arcgis/rest/services/ChinaOnlineStreetGray/MapServer/tile/{z}/{y}/{x}',
 			}),
 		});
 
-		const map = new Map({
+		new Map({
 			target: this.mapContainer,
 			layers: [tileLayer, vectorLayer],
 			view: new View({
 				projection: 'EPSG:4326', // 墨卡托投影
-				// projection: 'EPSG:3857', //
 				center: center,
 				zoom: 15,
 				minZoom: 4,
@@ -81,6 +80,10 @@ export default class AddressMap extends Component {
 			controls: [],
 			interactions: [],
 		});
+
+		// map.on('click', function (e) {
+		// 	console.log(e.coordinate);
+		// });
 	}
 
 	render() {

@@ -1,7 +1,7 @@
 @import './variables.scss';
 @import './static/css/reset.css';
 @import './static/css/bootstrap-grid.css';
-@import './static/css/bootstrap-utilities.css';
+// @import './static/css/bootstrap-utilities.css';
 @import './static/icon/icon-font/iconfont.css';
 
 $fontWeight: 'Oswald-Bold', 'Oswald-Light', 'Oswald-Regular', 'Oswald-ExtraLight', 'Oswald-Medium', 'Oswald-SemiBold';
@@ -52,6 +52,7 @@ $fontWeight: 'Oswald-Bold', 'Oswald-Light', 'Oswald-Regular', 'Oswald-ExtraLight
 	}
 }
 .scroll-y {
+	scroll-behavior: smooth;
 	$scrollbarWidth: 5px;
 	/* 滚动条 */
 	&::-webkit-scrollbar {

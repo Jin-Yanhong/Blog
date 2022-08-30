@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { getSystemConfig } from './api/home';
-import { Footer, NavBar } from './components';
+import { BackToTop, Footer, NavBar } from './components';
 import { setSystemConfig } from './store/SysConfigMethods';
 import { getStorage, setStorage } from './utils';
 import Article from './views/Article';
@@ -22,9 +22,9 @@ const App: React.FunctionComponent<{}> = function () {
 	const dispatch = useDispatch();
 	const pathname = useLocation().pathname;
 	let configObj: any = getStorage('config') || undefined;
-
+	let copyright: string = config?.copyright || '';
 	useEffect(() => {
-		if (config?.copyright) {
+		if (copyright) {
 			window.scrollTo({
 				top: 0,
 				left: 0,
@@ -44,8 +44,10 @@ const App: React.FunctionComponent<{}> = function () {
 					.catch((err) => {});
 			}
 		}
-		// return () => window.localStorage.clear();
-	}, [pathname]);
+		return () => {
+			// window.localStorage.clear();
+		};
+	}, [pathname, configObj]);
 
 	return (
 		<div className="App">
@@ -56,7 +58,8 @@ const App: React.FunctionComponent<{}> = function () {
 				<Route element={<Article />} path="/Article" />
 				<Route path="*" element={<Navigate to="/" replace />} />
 			</Routes>
-			<Footer copyright={config?.copyright} />
+			<Footer copyright={copyright} />
+			<BackToTop />
 		</div>
 	);
 };

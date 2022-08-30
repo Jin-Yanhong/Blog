@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import {} from '../../api/home';
 import { RootState } from '../../store/type';
@@ -13,13 +13,12 @@ interface ContactUsState {
 interface ContactUsProps {}
 
 const ContactUs: React.FunctionComponent = function (props: ContactUsProps, state: ContactUsState) {
-	let [links, setLinks] = useState([]);
-
+	// let [links, setLinks] = useState([]);
 	// const mapContainer = useRef<HTMLInputElement>(null);
-
 	let sysConfig = useSelector((state: RootState) => state.sysConfig.sysConfig);
 	let {
 		contactInfo: { address, email, phone },
+		lanLong,
 	} = sysConfig;
 
 	useEffect(() => {}, []);
@@ -29,14 +28,12 @@ const ContactUs: React.FunctionComponent = function (props: ContactUsProps, stat
 			<div className="container">
 				<div className="row">
 					<div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-						<div className="mapContainer">
-							<AddressMap center={[103.825764, 36.054192]} />
-						</div>
+						<div className="mapContainer">{lanLong?.length > 0 ? <AddressMap center={lanLong} /> : ''}</div>
 					</div>
 					<div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
 						<div className="info">
 							<p>
-								<span className="iconfont icon-email"></span>{' '}
+								<span className="iconfont icon-email"></span>
 								<a href={'mailto:' + email} target="_blank" rel="noopener noreferrer">
 									<span className="email">{email}</span>
 								</a>
@@ -45,7 +42,7 @@ const ContactUs: React.FunctionComponent = function (props: ContactUsProps, stat
 								<span className="iconfont icon-lbs"></span> <span className="address">{address}</span>
 							</p>
 							<p>
-								<span className="iconfont icon-dianhuatianchong"></span>{' '}
+								<span className="iconfont icon-dianhuatianchong"></span>
 								<span className="phone">{phone}</span>
 							</p>
 						</div>

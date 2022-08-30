@@ -1,3 +1,4 @@
+import BackToTop from './BackToTop';
 import BannerImg from './BannerImg';
 import BlockTitle from './BlockTitle';
 import ContactUs from './ContactUs';
@@ -7,4 +8,4 @@ import Skill from './Skill';
 import TopPicture from './TopPicture';
 import WorkItem from './WorkItem';
 
-export { BannerImg, BlockTitle, ContactUs, Footer, NavBar, Skill, TopPicture, WorkItem };
+export { BackToTop, BannerImg, BlockTitle, ContactUs, Footer, NavBar, Skill, TopPicture, WorkItem };

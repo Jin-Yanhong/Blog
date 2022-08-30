@@ -1,11 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { typeSysConfig } from './type';
 
-interface typeSysConfig {
-	id: string;
-	copyright: string;
-	contactInfo: { address: string; phone: string; email: string };
-}
 export interface sysConfigState {
 	sysConfig: typeSysConfig;
 }
@@ -15,6 +11,7 @@ const initialState: sysConfigState = {
 		id: '',
 		copyright: '',
 		contactInfo: { address: '', phone: '', email: '' },
+		lanLong: [],
 	},
 };
 

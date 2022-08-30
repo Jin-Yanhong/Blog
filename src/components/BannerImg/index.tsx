@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import BlockTitle from '../BlockTitle';
 
 import './index.scss';
@@ -41,6 +41,7 @@ function BannerImg(props: propsType, state: stateType) {
 			<img
 				src={imgName}
 				className="img"
+				alt=""
 				onLoad={(e) => handleImageOnLoad(e)}
 				onContextMenu={(e) => handleContextMenu(e)}
 			/>

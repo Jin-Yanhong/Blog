@@ -1,0 +1,35 @@
+@import '../../variables.scss';
+
+.BackToTop {
+	position: fixed;
+	z-index: 10;
+	bottom: 0;
+	right: 0;
+	width: 180px;
+	height: 60px;
+	border-radius: 80px 0px 0px;
+	color: #fff;
+	background: #ced6e0;
+	cursor: pointer;
+	transition: all 0.5s ease 0s;
+	transform: translate(180px, 60px);
+	.iconfont {
+		font-size: 28px;
+	}
+	.text {
+		text-align: center;
+		div {
+			font-size: 14px;
+		}
+	}
+
+	&:hover {
+		transform: translate(0, 0);
+		background: #45aaf2;
+	}
+}
+
+.show {
+	@include boxShadow;
+	transform: translate(120px, 0);
+}

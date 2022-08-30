@@ -3,32 +3,85 @@
 .nav {
 	position: absolute;
 	z-index: 1;
-	width: calc(100% - 40px);
 	line-height: 60px;
-	padding: 0 20px;
-	&-left {
-		cursor: pointer;
-		.iconfont {
-			color: #fff;
-			font-size: 30px;
-		}
-	}
-	&-right {
-		.navItem {
-			font-weight: 300;
-			padding: 0 20px;
-			margin: 0 20px;
+	width: 100%;
+	.desktop {
+		width: calc(100% - 40px);
+		padding: 0 20px;
+		.brand {
+			float: left;
 			cursor: pointer;
 			color: #fff;
-			font-size: 20px;
-			letter-spacing: 6px;
-			&:nth-last-child(1) {
-				padding-right: 0 !important;
-				margin-right: 0 !important;
+		}
+		.navList {
+			float: right;
+			display: flex;
+			justify-content: space-between;
+			li {
+				.navItem {
+					padding: 0 20px;
+					margin: 0 20px;
+					cursor: pointer;
+					color: $linkTextColor;
+				}
+				.activeNavItem {
+					color: $linkTextHoverColor !important;
+				}
+				&:nth-last-child(1) {
+					a {
+						margin-right: 0 !important;
+						padding-right: 0 !important;
+					}
+				}
 			}
 		}
-		.activeNavItem {
-			color: #dcdde1;
+		&::after {
+			content: '';
+			clear: both;
+			display: table;
 		}
+	}
+
+	.mobile {
+		box-sizing: border-box;
+		background-color: #f8f9fa;
+		width: 100%;
+		.navbar {
+			padding: 0 20px;
+			display: flex;
+			justify-content: space-between;
+			color: #333;
+			.iconfont {
+				font-size: 30px;
+			}
+		}
+
+		.navList {
+			padding: 0 20px;
+			background: #fff;
+			transition: all 0.5s ease-in-out;
+			overflow-y: hidden;
+			height: 0;
+			li {
+				padding: 0;
+				margin: 0;
+				.navItem {
+					color: #999;
+					padding: 0;
+					margin: 0;
+				}
+			}
+			.activeNavItem {
+				color: #333 !important;
+			}
+		}
+		.heightAuto {
+			height: 189px;
+		}
+	}
+	.navItem {
+		font-family: $enFont, sans-serif !important;
+		font-size: 20px;
+		letter-spacing: 6px;
 	}
 }
