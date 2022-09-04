@@ -4,20 +4,36 @@
 // @import './static/css/bootstrap-utilities.css';
 @import './static/icon/icon-font/iconfont.css';
 
-$fontWeight: 'Oswald-Bold', 'Oswald-Light', 'Oswald-Regular', 'Oswald-ExtraLight', 'Oswald-Medium', 'Oswald-SemiBold';
+$fontWeight: 'Bold', 'Light', 'Regular', 'ExtraLight', 'Medium', 'SemiBold';
 
 @each $font in $fontWeight {
 	@font-face {
-		font-family: '#{$font}';
+		font-family: 'Oswald-#{$font}';
 		font-style: normal;
 		font-weight: 200;
 		font-display: swap;
-		src: url(../src/static/font/Oswald/#{$font}.ttf) format('woff2');
+		src: url(../src/static/font/Oswald/Oswald-#{$font}.ttf) format('woff2');
 	}
 
 	.enFont-#{$font} {
-		font-family: '#{$font}', sans-serif !important;
+		font-family: 'Oswald-#{$font}', sans-serif !important;
 	}
+}
+
+@font-face {
+	font-family: 'Fira-Code';
+	font-style: normal;
+	font-weight: 200;
+	font-display: swap;
+	src: url(../src/static/font/FiraCode/FiraCode-Regular.ttf) format('woff2');
+}
+
+@font-face {
+	font-family: 'PingFang';
+	font-style: normal;
+	font-weight: 200;
+	font-display: swap;
+	src: url(../src/static/font/PingFang/PingFang-Regular.ttf) format('woff2');
 }
 
 .flex {
@@ -84,6 +100,7 @@ $fontWeight: 'Oswald-Bold', 'Oswald-Light', 'Oswald-Regular', 'Oswald-ExtraLight
 
 body {
 	background-color: #fff;
+	font-family: 'PingFang';
 	&::-webkit-scrollbar {
 		width: 0;
 		height: 0;

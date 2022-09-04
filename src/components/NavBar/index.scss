@@ -3,11 +3,11 @@
 .nav {
 	position: absolute;
 	z-index: 1;
-	line-height: 60px;
 	width: 100%;
 	.desktop {
-		width: calc(100% - 40px);
-		padding: 0 20px;
+		line-height: 60px;
+		width: calc(100% - 80px);
+		padding: 0 40px;
 		.brand {
 			float: left;
 			cursor: pointer;
@@ -24,9 +24,7 @@
 					cursor: pointer;
 					color: $linkTextColor;
 				}
-				.activeNavItem {
-					color: $linkTextHoverColor !important;
-				}
+
 				&:nth-last-child(1) {
 					a {
 						margin-right: 0 !important;
@@ -45,6 +43,7 @@
 	.mobile {
 		box-sizing: border-box;
 		width: 100%;
+		line-height: 40px;
 		.navbar {
 			background-color: #00000055;
 			padding: 0 20px;
@@ -68,20 +67,23 @@
 				.navItem {
 					padding: 0;
 					margin: 0;
+					font-size: 14px;
 				}
 			}
 		}
 		.heightAuto {
-			height: 189px;
+			height: 120px;
 		}
 	}
-	.navItem {
-		font-family: $enFont, sans-serif !important;
-		font-size: 20px;
-		letter-spacing: 6px;
-		color: $linkTextColor;
-	}
 }
+
+.navItem {
+	font-family: $enFont, sans-serif !important;
+	font-size: 20px;
+	letter-spacing: 6px;
+	color: $linkTextColor;
+}
+
 .activeNavItem {
 	color: $linkTextHoverColor !important;
 }

@@ -13,7 +13,7 @@ function BlockTitle(props: BlockTitleProps) {
 		<div className="container">
 			<div className="BlockTitle flex flex-between" style={{ borderColor: lineColor }}>
 				<span className="hr hr-left" style={{ background: lineColor }}></span>
-				<span className="innerTitle enFont-Oswald-ExtraLight" style={{ color: lineColor }}>
+				<span className="innerTitle enFont-ExtraLight" style={{ color: lineColor }}>
 					{title.toUpperCase()}
 				</span>
 				<span className="hr hr-right" style={{ background: lineColor }}></span>

@@ -102,7 +102,7 @@ export default class Article extends React.Component<articleProps, articleState>
 							</div>
 						</div>
 						<div className="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-9">
-							<div className="articleDetails">
+							<div className="articleDetails scroll-y">
 								<h1 className="title">{articleDetail.title}</h1>
 								<h3 className="subTitle">{articleDetail.subTitle}</h3>
 								<p className="summary">

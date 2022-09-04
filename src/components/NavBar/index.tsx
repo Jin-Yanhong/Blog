@@ -24,9 +24,7 @@ function NavBar(props: navProps) {
 							<li key={nav.path}>
 								<NavLink
 									to={nav.path}
-									className={({ isActive }) =>
-										isActive ? setting.defaultActiveClass + ' navItem' : 'navItem'
-									}
+									className={({ isActive }) => (isActive ? 'activeNavItem' + ' navItem' : 'navItem')}
 								>
 									<span>{nav.name.toUpperCase()}</span>
 								</NavLink>
@@ -46,9 +44,7 @@ function NavBar(props: navProps) {
 							<li key={nav.path}>
 								<NavLink
 									to={nav.path}
-									className={({ isActive }) =>
-										isActive ? setting.defaultActiveClass + ' navItem' : 'navItem'
-									}
+									className={({ isActive }) => (isActive ? 'activeNavItem' + ' navItem' : 'navItem')}
 								>
 									<span>{nav.name.toUpperCase()}</span>
 								</NavLink>

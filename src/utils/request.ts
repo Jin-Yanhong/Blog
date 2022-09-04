@@ -3,7 +3,7 @@ import axios from 'axios';
 const service = axios.create({
 	baseURL: process.env.REACT_APP_SERVER_URL, // url = base url + request url
 	timeout: 5000,
-	withCredentials: true, // send cookies when cross-domain requests
+	// withCredentials: true, // send cookies when cross-domain requests
 });
 
 // Request interceptors

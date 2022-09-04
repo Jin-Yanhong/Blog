@@ -1,6 +1,7 @@
 @import '../../variables.scss';
 
-$pageBodyHeight: 1240px;
+$pageBodyHeight: 774px;
+// $pageBodyHeight: 1074px;
 
 @mixin catalogAndContentContainer {
 	height: ($pageBodyHeight - 60px);
@@ -32,6 +33,7 @@ $pageBodyHeight: 1240px;
 				margin-bottom: 16px;
 				background-color: #fefefe;
 				border-bottom: 1px solid #ccc;
+				width: calc(100% - 12px / 3);
 				p {
 					margin: 0;
 					cursor: pointer;
@@ -65,7 +67,7 @@ $pageBodyHeight: 1240px;
 
 		.articleDetails {
 			@include catalogAndContentContainer();
-
+			overflow-y: scroll;
 			.title {
 				color: #333;
 				line-height: 60px;

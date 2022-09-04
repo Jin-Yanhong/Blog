@@ -49,7 +49,7 @@ export default class Works extends React.Component<WorksProps, WorksState> {
 
 		return (
 			<div className="worksPage">
-				<BannerImg className="BannerImg" imgName={img} title="my works"></BannerImg>
+				<BannerImg className="BannerImg" imgName={img} title="works"></BannerImg>
 				<div className="workList container">
 					<div className="row">
 						{works?.map((el: work) => {
