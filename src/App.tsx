@@ -47,7 +47,7 @@ const App: React.FunctionComponent<{}> = function () {
 		return () => {
 			// window.localStorage.clear();
 		};
-	}, [pathname, configObj]);
+	}, [pathname]);
 
 	return (
 		<div className="App">

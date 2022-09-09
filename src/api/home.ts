@@ -31,7 +31,7 @@ export function getOuterLinks(): Promise<any> {
 
 export function getSystemConfig(): Promise<any> {
 	return request({
-		url: 'home/getSystemConfig',
+		url: 'system/getSystemConfig',
 		method: 'get',
 	});
 }

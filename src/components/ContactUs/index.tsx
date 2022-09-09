@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import {} from '../../api/home';
 import { RootState } from '../../store/type';
@@ -16,12 +16,9 @@ const ContactUs: React.FunctionComponent = function (props: ContactUsProps, stat
 	// let [links, setLinks] = useState([]);
 	// const mapContainer = useRef<HTMLInputElement>(null);
 	let sysConfig = useSelector((state: RootState) => state.sysConfig.sysConfig);
-	let {
-		contactInfo: { address, email, phone },
-		lanLong,
-	} = sysConfig;
-
-	useEffect(() => {}, []);
+	let { address = '', email = '', phone = '' } = sysConfig.contactInfo ?? {};
+	let { lanLong = [] } = sysConfig;
+	// useEffect(() => {}, []);
 
 	return (
 		<div className="ContactUs">
