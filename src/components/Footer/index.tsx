@@ -37,7 +37,6 @@ export default class Footer extends React.Component<footerProps, footerState> {
 		} else {
 			getOuterLinks()
 				.then((res) => {
-					console.log(res);
 					this.setState({
 						...res,
 					});
@@ -97,7 +96,7 @@ export default class Footer extends React.Component<footerProps, footerState> {
 						<div className="d-none d-sm-none d-md-none col-lg-3 col-xl-3 col-xxl-3 d-lg-block d-xl-block d-xxl-block">
 							<div className="QRCode">
 								<p className="name">微信</p>
-								<img src={process.env.REACT_APP_ASSETS_URL + 'images/qrcode.png'} alt="" />
+								<img src={process.env.REACT_APP_ASSETS_URL + 'images/qrCode.png'} alt="" />
 							</div>
 						</div>
 					</div>

@@ -7,16 +7,17 @@ export function getBingWallpaper(): Promise<any> {
 	});
 }
 
-export function getSkillsList(): Promise<any> {
+export function getSkillsList(pageSize: number, pageNum: number): Promise<any> {
 	return request({
-		url: 'home/getSkillsList',
+		url: 'skills/getSkillsList',
 		method: 'get',
+		params: { pageSize, pageNum },
 	});
 }
 
-export function getProjectList(pageSize: number, pageNum: number): Promise<any> {
+export function getWorkList(pageSize: number, pageNum: number): Promise<any> {
 	return request({
-		url: 'project/getProjectList',
+		url: 'work/getWorkList',
 		method: 'get',
 		params: { pageSize, pageNum },
 	});
@@ -29,9 +30,10 @@ export function getOuterLinks(): Promise<any> {
 	});
 }
 
-export function getSystemConfig(): Promise<any> {
+export function getSystemConfig(condition: any): Promise<any> {
 	return request({
-		url: 'system/getSystemConfig',
-		method: 'get',
+		url: '/system/getSystemConfig',
+		method: 'post',
+		data: condition,
 	});
 }

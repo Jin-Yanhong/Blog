@@ -17,12 +17,12 @@ interface ConfigType {
 	id?: string;
 }
 
-const App: React.FunctionComponent<{}> = function () {
-	let [config, setConfig] = useState<ConfigType>({});
+const App: React.FunctionComponent = function () {
+	const [config, setConfig] = useState<ConfigType>({});
 	const dispatch = useDispatch();
 	const pathname = useLocation().pathname;
-	let configObj: any = getStorage('config') || undefined;
-	let copyright: string = config?.copyright || '';
+	const configObj: any = getStorage('config') || undefined;
+	const copyright: string = config?.copyright || '';
 	useEffect(() => {
 		if (copyright) {
 			window.scrollTo({
@@ -35,13 +35,18 @@ const App: React.FunctionComponent<{}> = function () {
 				setConfig(configObj);
 				dispatch(setSystemConfig({ sysConfig: configObj }));
 			} else {
-				getSystemConfig()
+				getSystemConfig({
+					isActive: true,
+				})
 					.then((res) => {
-						setConfig(res);
-						setStorage('config', res);
-						dispatch(setSystemConfig({ sysConfig: res }));
+						const data = res[0];
+						setConfig(data);
+						setStorage('config', data);
+						dispatch(setSystemConfig({ sysConfig: data }));
 					})
-					.catch((err) => {});
+					.catch((err) => {
+						console.log(err);
+					});
 			}
 		}
 		return () => {

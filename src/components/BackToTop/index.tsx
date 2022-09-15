@@ -1,19 +1,18 @@
 import React, { Component, createRef } from 'react';
 import './index.scss';
-interface propsType {}
 
-export default class BackToTop extends Component<propsType> {
+export default class BackToTop extends Component {
 	private toTopRef = createRef<HTMLDivElement>();
-	constructor(props: propsType) {
+	constructor(props: any) {
 		super(props);
 		this.ToTop = this.ToTop.bind(this);
 	}
 
 	componentDidMount(): void {
-		let _this = this;
+		const _this = this;
 		document.addEventListener('scroll', function (e) {
-			let classList = _this.toTopRef.current?.classList;
-			let scrollTop = document.documentElement.scrollTop; //滚动条滚动高度
+			const classList = _this.toTopRef.current?.classList;
+			const scrollTop = document.documentElement.scrollTop; //滚动条滚动高度
 			if (scrollTop <= 100) {
 				_this.toTopRef.current?.classList.remove('show');
 			} else {
@@ -25,7 +24,7 @@ export default class BackToTop extends Component<propsType> {
 	}
 
 	componentWillUnmount(): void {
-		window.removeEventListener('scroll', () => {});
+		window.removeEventListener('scroll', function () {});
 	}
 
 	ToTop(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {

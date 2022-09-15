@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { typeSysConfig } from './type';
 
 export interface sysConfigState {
@@ -15,7 +15,7 @@ const initialState: sysConfigState = {
 	},
 };
 
-export const counterSlice = createSlice({
+export const configSlice = createSlice({
 	name: 'sysConfig',
 	initialState,
 	reducers: {
@@ -30,6 +30,6 @@ export const counterSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setSystemConfig } = counterSlice.actions;
+export const { setSystemConfig } = configSlice.actions;
 
-export default counterSlice.reducer;
+export default configSlice.reducer;

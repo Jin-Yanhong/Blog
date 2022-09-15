@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { getProjectList } from '../../api/home';
+import { getWorkList } from '../../api/home';
 import { BlockTitle, ContactUs, Skill, TopPicture, WorkItem } from '../../components';
 import { work } from '../../types';
 import { getStorage, setStorage } from '../../utils';
@@ -18,15 +18,15 @@ interface homeProps {
 }
 
 const Home: React.FunctionComponent<homeProps> = function (props: homeProps) {
-	let [works, setWorks] = useState([]);
+	const [works, setWorks] = useState([]);
 
-	let worksObj: any = getStorage('works') || undefined;
+	const worksObj: any = getStorage('works') || undefined;
 
 	useEffect(() => {
 		if (worksObj) {
 			setWorks(worksObj);
 		} else {
-			getProjectList(10, 1)
+			getWorkList(10, 1)
 				.then((res) => {
 					setWorks(res);
 					setStorage('works', res);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { getProjectList } from '../../api/home';
+import { getWorkList } from '../../api/home';
 import { BannerImg, WorkItem } from '../../components';
 import { work } from '../../types';
 import { getDate, getStorage, setStorage } from '../../utils';
@@ -32,7 +32,7 @@ export default class Works extends React.Component<WorksProps, WorksState> {
 				works: worksObj,
 			});
 		} else {
-			getProjectList(10, 1)
+			getWorkList(10, 1)
 				.then((res) => {
 					this.setState({
 						works: res,

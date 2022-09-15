@@ -16,7 +16,7 @@ const Skill: React.FunctionComponent<skillProps> = function (props: skillProps) 
 		if (skillsObj) {
 			setSkills(skillsObj);
 		} else {
-			getSkillsList()
+			getSkillsList(20, 1)
 				.then((res) => {
 					setSkills(res);
 					setStorage('skills', res);

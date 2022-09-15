@@ -8,9 +8,9 @@ export function getArticleList(pageSize: number, pageNum: number): Promise<any> 
 	});
 }
 
-export function getArticleContentById(id: string): Promise<any> {
+export function getArticleContent(id: string): Promise<any> {
 	return request({
-		url: 'article/getArticleContentById/' + id,
+		url: 'article/getArticleContent/' + id,
 		method: 'get',
 	});
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { getArticleContentById, getArticleList } from '../../api/article';
+import { getArticleContent, getArticleList } from '../../api/article';
 import { BannerImg } from '../../components';
 import { article } from '../../types';
 import { getStorage, setStorage } from '../../utils';
@@ -39,7 +39,7 @@ export default class Article extends React.Component<articleProps, articleState>
 				articleDetail: articleDetailObj,
 			});
 		} else {
-			getArticleContentById(id)
+			getArticleContent(id)
 				.then((res) => {
 					_this.setState({
 						articleDetail: res,
