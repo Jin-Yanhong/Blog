@@ -8,8 +8,8 @@ export type RootState = ReturnType<typeof store.getState>;
 
 //
 export interface typeSysConfig {
-	id: string;
-	copyright: string;
-	contactInfo: { address: string; phone: string; email: string };
-	lanLong: number[];
+    id: string;
+    copyright: string;
+    contactInfo: { address: string; phone: string; email: string };
+    lanLong: number[];
 }
