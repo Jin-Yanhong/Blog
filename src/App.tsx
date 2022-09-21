@@ -54,7 +54,7 @@ const App: React.FunctionComponent = function () {
         return () => {
             // window.localStorage.clear();
         };
-    }, [pathname]);
+    }, [pathname, copyright]);
 
     return (
         <div className="App">

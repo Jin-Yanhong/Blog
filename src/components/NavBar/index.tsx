@@ -24,7 +24,7 @@ function NavBar(props: navProps) {
                             {setting.navList.map(nav => {
                                 return (
                                     <li key={nav.path}>
-                                        <NavLink to={nav.path} className={({ isActive }) => (isActive ? 'activeNavItem' + ' navItem' : 'navItem')}>
+                                        <NavLink to={nav.path} className={({ isActive }) => (isActive ? 'activeNavItem navItem' : 'navItem')}>
                                             <span>{nav.name.toUpperCase()}</span>
                                         </NavLink>
                                     </li>
@@ -44,7 +44,7 @@ function NavBar(props: navProps) {
                         {setting.navList.map(nav => {
                             return (
                                 <li key={nav.path}>
-                                    <NavLink to={nav.path} className={({ isActive }) => (isActive ? 'activeNavItem' + ' navItem' : 'navItem')}>
+                                    <NavLink to={nav.path} className={({ isActive }) => (isActive ? 'activeNavItem navItem' : 'navItem')}>
                                         <span>{nav.name.toUpperCase()}</span>
                                     </NavLink>
                                 </li>
