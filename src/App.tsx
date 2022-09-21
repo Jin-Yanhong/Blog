@@ -21,9 +21,9 @@ const App: React.FunctionComponent = function () {
     const [config, setConfig] = useState<ConfigType>({});
     const pathname = useLocation().pathname;
     const copyright: string = config?.copyright || '';
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        const dispatch = useDispatch();
         const configObj: any = getStorage('config');
 
         if (copyright) {
