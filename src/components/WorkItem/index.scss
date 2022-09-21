@@ -4,14 +4,15 @@
 	@include paddingTB;
 	@include borderRadius;
 	position: relative;
+	width: 180px;
 	padding: ($itemSpace);
 	border: 1px solid rgb(215, 215, 215);
 	border-radius: 4px;
 	transition: all 0.5s ease-in-out;
 	.image {
-		height: 120px;
+		height: 180px;
 		@include borderRadius;
-		background-size: 100%;
+		background-size: auto 100%;
 		margin-bottom: $itemSpace;
 	}
 	.name {
