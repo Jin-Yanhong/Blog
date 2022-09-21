@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { getSystemConfig } from './api/home';
 import { BackToTop, Footer, NavBar } from './components';
 import { setSystemConfig } from './store/reducer/SysConfigReducer';
@@ -19,7 +19,6 @@ interface ConfigType {
 
 const App: React.FunctionComponent = function () {
     const [config, setConfig] = useState<ConfigType>({});
-    const pathname = useLocation().pathname;
     const copyright: string = config?.copyright || '';
     const dispatch = useDispatch();
 
@@ -54,7 +53,7 @@ const App: React.FunctionComponent = function () {
         return () => {
             // window.localStorage.clear();
         };
-    });
+    }, [copyright, dispatch]);
 
     return (
         <div className="App">
