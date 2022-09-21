@@ -26,11 +26,11 @@ const Home: React.FunctionComponent<homeProps> = function (props: homeProps, sta
     const [tagList, setTagList] = useState([]);
     const [techList, setTechList] = useState([]);
 
-    let worksObj: any = getStorage('works');
-    let tagListObj: any = getStorage('tagList');
-    let techListObj: any = getStorage('techList');
-
     useEffect(() => {
+        let worksObj: any = getStorage('works');
+        let tagListObj: any = getStorage('tagList');
+        let techListObj: any = getStorage('techList');
+
         if (worksObj) {
             setWorks(worksObj);
         } else {

@@ -11,9 +11,9 @@ type WorkItemProps = {
 };
 
 export default class WorkItem extends Component<WorkItemProps, WorkItemProps> {
-    constructor(props: WorkItemProps) {
-        super(props);
-    }
+    // constructor(props: WorkItemProps) {
+    //     super(props);
+    // }
     fieldTranslate = () => fieldTranslate;
     render() {
         let { item, tagList, techList } = this.props;

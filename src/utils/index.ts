@@ -12,7 +12,7 @@ export function fieldTranslate(collection: Array<dictValue>, value: number | str
     if (collection && value && value.toString().length) {
         if (Object.prototype.toString.call(collection) === '[object Array]') {
             let checked = collection.find((ele: dictValue) => {
-                return ele[collectionField] == value;
+                return ele[collectionField] === value;
             });
 
             let tips = (checked && checked[collectionLabel]) || 'Error';

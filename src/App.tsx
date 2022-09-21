@@ -19,11 +19,13 @@ interface ConfigType {
 
 const App: React.FunctionComponent = function () {
     const [config, setConfig] = useState<ConfigType>({});
-    const dispatch = useDispatch();
     const pathname = useLocation().pathname;
-    const configObj: any = getStorage('config') || undefined;
     const copyright: string = config?.copyright || '';
+
     useEffect(() => {
+        const dispatch = useDispatch();
+        const configObj: any = getStorage('config');
+
         if (copyright) {
             window.scrollTo({
                 top: 0,
