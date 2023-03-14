@@ -33,8 +33,8 @@ export function getOuterLinks(): Promise<any> {
 export function getSystemConfig(condition: any): Promise<any> {
     return request({
         url: '/system/getSystemConfig',
-        method: 'post',
-        data: condition,
+        method: 'get',
+        params: condition,
     });
 }
 export function requestDictByKey(key: number): Promise<any> {
@@ -43,3 +43,4 @@ export function requestDictByKey(key: number): Promise<any> {
         method: 'get',
     });
 }
+
